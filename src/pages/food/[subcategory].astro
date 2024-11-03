@@ -1,11 +1,15 @@
 ---
-// src/pages/drinks/[subcategory].astro
+// src/pages/food/[subcategory].astro
+import { getCollection } from 'astro:content';
 import Header from '../../components/Header.astro';
 import DropDownFood from '../../components/DropDownFood.astro';
 import '../../styles/global.css';
 import '../../styles/card.css';
+
 const { subcategory } = Astro.params;
-const filteredFood = food.filter(c => c.subcategory_id === subcategory);
+const publishedFoodEntries = await getCollection('food', ({ data }) => {
+  return data.subcategory == subcategory;
+});
 
 ---
 <!DOCTYPE html>
@@ -17,36 +21,37 @@ const filteredFood = food.filter(c => c.subcategory_id === subcategory);
     <meta property="og:title" content="food @La Mediterranea">
     <meta property="og:description" content="mediterranean and international delicacies">
     <meta property="og:image" content="images/drinks/cocktails_banner.png">
-    <meta property="og:url" content="/drinks/${subcategory}">
+    <meta property="og:url" content="/food/${subcategory}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
     <Header />
-    <DropDownFood />
     <main class="main-content">
+        <div class="subheader"></div>
+            <DropDownFood />
+        </div>
         <div class="card-container">
-        {filteredFood.map((item: { data: { name: string, image: string, description: string, price: number } }) => (
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">{item.data.name}</h3>
-                    <img class="card-image"src={item.data.image} alt={item.data.name} />
+            {publishedFoodEntries.map((item: { id: string, slug: string, body: string, collection: string, data: { subcategory: string, id: number, name: string, description: string, price: number, image?: string } }) => (
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">{item.data.name}</h3>
+                        <img class="card-image" src={item.data.image} alt={item.data.name} />
+                    </div>
+                    <p class="card-description">{item.data.description}</p>
+                    <div class="divider-gradient"></div>
+                    <div class="card-price">{item.data.price} €</div>
                 </div>
-                <p class="card-description">{item.data.description}</p>
-                <div class="divider-gradient"></div>
-                <div class="card-price">{item.data.price} €</div>
-            </div>
-        ))}
-    </div>
-        
-    </main>
+            ))}
+        </div>
+
     </main>
 
     <script>
         const select = document.getElementById('food-category') as HTMLSelectElement
         select?.addEventListener('change', e => {
             const { value } = select.options[select.selectedIndex]
-            document.location.href = `/food/${value}`
+            document.location.href = `/food/${subcategory}/${value}`
         })
     </script>
 </body>
