@@ -1,0 +1,20 @@
+---
+// src/layouts/DrinkLayout.astro
+import BaseLayout from './BaseLayout.astro';
+
+export interface DrinkLayoutProps {
+    title: string;
+    description: string;
+    ogImage: string;
+    ogUrl: string;
+}
+
+const { title, description, ogImage, ogUrl } = Astro.props;
+---
+
+<BaseLayout {title} {description} {ogImage} {ogUrl}>
+    <slot name="header" slot="header" />
+    <slot name="slideshow" slot="slideshow" />
+    <slot />
+    <slot name="footer" slot="footer" />
+</BaseLayout>

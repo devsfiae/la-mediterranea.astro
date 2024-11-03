@@ -1,0 +1,35 @@
+---
+// src/layouts/BaseLayout.astro
+import '../styles/global.css';
+export interface LayoutProps {
+    title: string;
+    description: string;
+    ogImage: string;
+    ogUrl: string;
+}
+
+const { title, description, ogImage, ogUrl } = Astro.props;
+---
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>{title || 'La Mediterranea'}</title>
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content={title || 'La Mediterranea'} />
+    <meta property="og:description" content={description || 'Experience Mediterranean vibes at our beach restaurant on Formentera'} />
+    <meta property="og:image" content={ogImage || '/images/website_background.jpg'} />
+    <meta property="og:url" content={ogUrl || '/'} />
+    <slot name="head" />
+</head>
+<body>
+    <slot name="header" />
+    <main class="main-content no-scroll">
+        <slot name="slideshow" />
+        <slot />
+    </main>
+    <slot name="footer" />
+</body>
+</html>

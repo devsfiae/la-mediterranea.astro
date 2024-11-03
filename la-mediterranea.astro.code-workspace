@@ -2,15 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "../php-api"
-		},
-		{
-			"path": "../la-mediterranea.eu"
-		},
-		{
-			"path": "../../Documents/GitHub/quiz"
 		}
 	]
 }

@@ -51,7 +51,7 @@ const publishedFoodEntries = await getCollection('food', ({ data }) => {
         const select = document.getElementById('food-category') as HTMLSelectElement
         select?.addEventListener('change', e => {
             const { value } = select.options[select.selectedIndex]
-            document.location.href = `/food/${subcategory}/${value}`
+            document.location.href = `/food/${value}`
         })
     </script>
 </body>

@@ -1,28 +1,20 @@
 ---
+// src/pages/Index.astro
+import HomeLayout from '../layouts/HomeLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import Slideshow from '../components/IndexSlideshow.astro';
-import '../styles/global.css';
+import IndexSlideshow from '../components/IndexSlideshow.astro';
+
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Start @ La Mediterranea</title>
-    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
-    <meta property="og:title" content="Bar/Restaurant La Mediterranea">
-    <meta property="og:description" content="Experience Mediterranean vibes at our beach restaurant on Formentera">
-    <meta property="og:image" content="images/website_background.jpg">
-    <meta property="og:url" content="index.html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    <Header />
-    <main class="main-content no-scroll">
-        <Slideshow />
-    </main>
-    <Footer />
-</body>
-</html>
+<HomeLayout
+    title="Welcome to La Mediterranea"
+    description="Experience Mediterranean vibes at our beach restaurant on Formentera"
+    ogImage="/images/website_background.jpg"
+    ogUrl="/"
+>
+    <title slot="head">Home - La Mediterranea</title>
+    <Header slot="header" />
+    <IndexSlideshow slot="slideshow" />
+    <Footer slot="footer" />
+</HomeLayout>

@@ -1,32 +1,17 @@
 ---
-// pages/index.astro
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+// src/pages/Drink.astro
+import DrinkLayout from '../layouts/DrinkLayout.astro';
 import ButtonLink from '../components/ButtonLink.astro';
-import Slideshow from '../components/DrinkSlideshow.astro';
-import '../styles/global.css';
+import DrinkSlideshow from '../components/DrinkSlideshow.astro';
+
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>drinks @ La Mediterranea</title>
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <meta property="og:title" content="drink @La Mediterranea">
-    <meta property="og:description" content="unusual inspired cocktail creations">
-    <meta property="og:image" content="images/cocktails/cocktails_banner.png">
-    <meta property="og:url" content="drink.html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    <Header />
-    <div class="subheader">
-        <ButtonLink href="/DrinkCard" label="View Card" className="primary" />
-    </div>
-    <main class="main-content no-scroll">
-        <Slideshow />
-    </main>
-    <Footer />
-</body>
-</html>
+<DrinkLayout
+    title="drinks @ La Mediterranea"
+    description="Unusual inspired cocktail creations"
+    ogImage="/images/cocktails/cocktails_banner.png"
+    ogUrl="/drink.html"
+>
+    <ButtonLink href="/DrinkCard" label="View Card" class="primary" slot="button" />
+    <DrinkSlideshow slot="slideshow" />
+</DrinkLayout>

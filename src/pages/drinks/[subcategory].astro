@@ -49,7 +49,7 @@ const filteredDrinks = drinks.filter(c => c.subcategory_id === subcategory);
 
     <script>
         const select = document.getElementById('drink-category') as HTMLSelectElement
-        select?.addEventListener('change', e => {
+        select?.addEventListener('change', () => {
             const { value } = select.options[select.selectedIndex]
             document.location.href = `/drinks/${value}`
         })
