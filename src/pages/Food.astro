@@ -1,0 +1,32 @@
+---
+// pages/food.astro
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Slideshow from '../components/FoodSlideshow.astro';
+import ButtonLink from '../components/ButtonLink.astro';
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>food @La Mediterranea</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <meta property="og:title" content="food @La Mediterranea">
+    <meta property="og:description" content="mediterranean and international delicacies">
+    <meta property="og:image" content="images/food/food_culture.png">
+    <meta property="og:url" content="food.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <Header />
+    <div class="subheader">
+        <ButtonLink href="/FoodCard" label="View Card" className="primary" />
+    </div>
+    <main class="main-content no-scroll">
+        <Slideshow />
+    </main>
+    <Footer />
+</body>
+</html>

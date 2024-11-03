@@ -1,0 +1,53 @@
+---
+// src/pages/drinks/[subcategory].astro
+import Header from '../../components/Header.astro';
+import DropDownFood from '../../components/DropDownFood.astro';
+import '../../styles/global.css';
+import '../../styles/card.css';
+const { subcategory } = Astro.params;
+const filteredFood = food.filter(c => c.subcategory_id === subcategory);
+
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>food @La Mediterranea</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <meta property="og:title" content="food @La Mediterranea">
+    <meta property="og:description" content="mediterranean and international delicacies">
+    <meta property="og:image" content="images/drinks/cocktails_banner.png">
+    <meta property="og:url" content="/drinks/${subcategory}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <Header />
+    <DropDownFood />
+    <main class="main-content">
+        <div class="card-container">
+        {filteredFood.map((item: { data: { name: string, image: string, description: string, price: number } }) => (
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">{item.data.name}</h3>
+                    <img class="card-image"src={item.data.image} alt={item.data.name} />
+                </div>
+                <p class="card-description">{item.data.description}</p>
+                <div class="divider-gradient"></div>
+                <div class="card-price">{item.data.price} €</div>
+            </div>
+        ))}
+    </div>
+        
+    </main>
+    </main>
+
+    <script>
+        const select = document.getElementById('food-category') as HTMLSelectElement
+        select?.addEventListener('change', e => {
+            const { value } = select.options[select.selectedIndex]
+            document.location.href = `/food/${value}`
+        })
+    </script>
+</body>
+</html>

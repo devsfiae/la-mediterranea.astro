@@ -1,0 +1,42 @@
+---
+// src/pages/DrinkCard.astro
+import Header from '../components/Header.astro';
+import Drinks from '../data/drinks.json';
+import '../styles/global.css';
+import '../styles/card.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>food @La Mediterranea</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <meta property="og:title" content="food @La Mediterranea">
+    <meta property="og:description" content="mediterranean and international delicacies">
+    <meta property="og:image" content="images/drinks/cocktails_banner.png">
+    <meta property="og:url" content="DrinkCard">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <Header />
+    <main class="main-content">
+        <div class="card-container">
+            {Drinks.map((drink) => (
+                <div class="card" data-key={drink.item_id}>
+                    <div class="card-header">
+                        <h3 class="card-title">{drink.item_name}</h3>
+                        <img class="card-image" src={drink.image_path || '/images/icons/no_picture.png'} alt={drink.item_name} />
+                    </div>
+                    <p>{drink.description}</p>
+                    <div class="divider-gradient"></div>
+                    <div class="card-price"><strong>{drink.menu_price}</strong></div>
+                    <p class="card-description">{drink.degree_name}</p>
+                    <p class="card-description">{drink.volume} l</p>
+                </div>
+            ))}
+        </div>
+    </main>
+</body>
+</html>

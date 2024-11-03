@@ -1,0 +1,10 @@
+---
+// ButtonLink.astro
+import './styles/Button.css';
+
+const { label, href, className = 'primary' } = Astro.props;
+---
+
+<a href={href} class={`btn ${className}`}>
+    {label}
+</a>

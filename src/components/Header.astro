@@ -1,0 +1,31 @@
+---
+// src/components/Header.astro
+import './styles/header.css';
+---
+<header class="header">
+    <div class="logo">
+        <a href="/index.html" aria-label="start page">&nbsp;</a>
+    </div>
+    <nav class="header-center">
+        <ul>
+            <li><a href="/index.html" aria-label="start page">start</a></li>
+            <li><a href="/Food" aria-label="food page">food</a></li>
+            <li><a href="/Drink" aria-label="drinks page">drinks</a></li>
+            <li><a href="/Table" aria-label="reservation page">reserve</a></li>
+            <li><a href="/Event" aria-label="event page">events</a></li>
+            <li><a href="/Contact" aria-label="contact page">contact</a></li>
+            <li><a href="/Team" aria-label="about page">about us</a></li>
+        </ul>
+    </nav>
+    <div class="header-right">
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch">
+                <input type="checkbox" id="theme-checkbox" title="dark/light">
+                <span class="slider round"></span>
+            </label>
+            <span class="mode-text" id="mode-text">light</span>
+        </div>
+    </div>
+</header>
+
+<script src="/js/themeswitch.js" defer></script>

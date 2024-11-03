@@ -1,0 +1,35 @@
+---
+// DropDownFood.astro
+
+// Define the drink categories with corresponding values
+const categories = [
+    { label: "All", value: "all" },
+    { label: "Meat", value: "1" },
+    { label: "Seafood", value: "2" },
+    { label: "Vegetarian", value: "3" },
+    { label: "Desserts", value: "4" }
+];
+
+// Set default selected value if not provided
+let selectedCategory = "all";
+
+---
+
+<div class="dropdown-container">
+    <label class="dropdown-label" for="food-category"></label>
+    <select
+        id="food-category"
+        class="dropdown-select"
+        value={selectedCategory}
+    >
+    {categories.map((category) => (
+        <option value={category.value} selected={selectedCategory === category.value}>
+        {category.label}
+        </option>
+    ))}
+    </select>
+</div>
+
+<style>
+    @import "./styles/DropDown.css";
+</style>

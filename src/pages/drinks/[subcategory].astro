@@ -1,0 +1,58 @@
+---
+// src/pages/drinks/[subcategory].astro
+import drinks from '../../data/drinks.json';
+import Header from '../../components/Header.astro';
+import DropDownDrink from '../../components/DropDownDrink.astro';
+import '../../styles/global.css';
+import '../../styles/card.css';
+const { subcategory } = Astro.params;
+const filteredDrinks = drinks.filter(c => c.subcategory_id === subcategory);
+
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>food @La Mediterranea</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <meta property="og:title" content="food @La Mediterranea">
+    <meta property="og:description" content="mediterranean and international delicacies">
+    <meta property="og:image" content="images/drinks/cocktails_banner.png">
+    <meta property="og:url" content="/drinks/${subcategory}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <Header />
+    <main class="main-content">
+        <!-- Dropdown for category selection -->
+        <div class="subheader">
+            <DropDownDrink />
+        </div>
+        <!-- Filtered Drinks Display -->
+        <div class="card-container">
+            {filteredDrinks.map((drink) => (
+                <div class="card" data-key={drink.item_id}>
+                    <div class="card-header">
+                        <h3 class="card-title">{drink.item_name}</h3>
+                        <img class="card-image" src={drink.image_path || '/images/icons/no_picture.png'} alt={drink.item_name} />
+                    </div>
+                    <p>{drink.description}</p>
+                    <div class="divider-gradient"></div>
+                    <div class="card-price"><strong>{drink.menu_price}</strong></div>
+                    <p class="card-description">{drink.degree_name}</p>
+                    <p class="card-description">{drink.volume} l</p>
+                </div>
+            ))}
+        </div>
+    </main>
+
+    <script>
+        const select = document.getElementById('drink-category') as HTMLSelectElement
+        select?.addEventListener('change', e => {
+            const { value } = select.options[select.selectedIndex]
+            document.location.href = `/drinks/${value}`
+        })
+    </script>
+</body>
+</html>

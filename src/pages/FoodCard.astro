@@ -1,0 +1,43 @@
+---
+// src/pages/FoodCard.astro
+import { getCollection } from 'astro:content';
+import Header from '../components/Header.astro';
+import '../styles/global.css';
+import '../styles/card.css';
+
+const foodItems = await getCollection('food');
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>food @La Mediterranea</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <meta property="og:title" content="food @La Mediterranea">
+    <meta property="og:description" content="mediterranean and international delicacies">
+    <meta property="og:image" content="images/food/food_culture.png">
+    <meta property="og:url" content="FoodCard.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <Header />
+    <main class="main-content">
+        <div class="card-container">
+        {foodItems.map((item) => (
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">{item.data.name}</h3>
+                    <img class="card-image"src={item.data.image} alt={item.data.name} />
+                </div>
+                <p class="card-description">{item.data.description}</p>
+                <div class="divider-gradient"></div>
+                <div class="card-price">{item.data.price} €</div>
+            </div>
+        ))}
+    </div>
+        
+    </main>
+</body>
+</html>

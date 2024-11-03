@@ -1,0 +1,40 @@
+---
+import './styles/slideshow.css';
+---
+
+<div class="slideshow-container">
+    <!-- Slides -->
+    <div class="slide active">
+        <img src="/images/bar/beachbar.png" alt="Bar" class="slide-image">
+    </div>
+    <div class="slide">
+        <img src="/images/bar/restaurant.png" alt="Restaurant" class="slide-image">
+    </div>
+    <div class="slide">
+        <img src="/images/food/food_culture.png" alt="Food" class="slide-image">
+    </div>
+    <div class="slide">
+        <img src="/images/drinks/cocktails_banner.png" alt="Cocktails" class="slide-image">
+    </div>
+    <div class="slide">
+        <img src="/images/events/eveningwithdj.png" alt="Events" class="slide-image">
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="navigation">
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+
+    <!-- Dots and over the Footer of the index -->
+    <div class="slide-footer">
+        <div class="dots-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+        </div>
+    </div>
+</div>
+<script src="/js/slideshow.js" defer></script>

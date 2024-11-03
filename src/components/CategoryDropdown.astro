@@ -1,0 +1,45 @@
+---
+// src/components/CategoryDropdown.astro
+
+const { category } = Astro.props; // Erwartet food oder drinks
+
+// Unterkategorien basierend auf `category`
+const subcategories = category === 'food'
+    ? [
+        { id: 'all', name: 'All' },
+        { id: '7', name: 'Beef' },
+        { id: '8', name: 'Seafood' },
+        { id: '9', name: 'Vegetarian' },
+        { id: '10', name: 'Desserts' },
+    ]
+    : [
+        { id: 'all', name: 'All' },
+        { id: '1', name: 'Fruity/Refreshing' },
+        { id: '2', name: 'Fruity/Sweet' },
+        { id: '3', name: 'Sweet/Creamy' },
+        { id: '4', name: 'Tart/Dry' },
+        { id: '5', name: 'Non-Alcoholic' },
+        { id: '6', name: 'Hot Drinks' },
+    ];
+
+function updateSubcategory(event: Event) {
+    const target = event.target as HTMLSelectElement | null;
+    if (target) {
+        const subcategory = target.value;
+        const url = new URL(window.location.href);
+        url.searchParams.set('subcategory', subcategory);
+        window.location.href = url.toString();
+    }
+}
+---
+
+<div class="subheader">
+    <label for="categoryDropdown">Choose a subcategory:</label>
+    <select id="categoryDropdown" class="dropdown" on:change={updateSubcategory}>
+    {subcategories.map(subcat => (
+        <option value={subcat.id} selected={subcat.id === Astro.url.searchParams.get('subcategory')}>
+            {subcat.name}
+        </option>
+    ))}
+    </select>
+</div>

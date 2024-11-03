@@ -1,0 +1,26 @@
+---
+// src/components/FoodContainer.astro
+import FoodCard from '../pages/FoodCard.astro';
+
+export interface FoodContainerProps {
+    items: FoodCardProps[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="card-container">
+    {items.length > 0 ? (
+        items.map((menuItem) => (
+            <FoodCard 
+                item_id={menuItem.item_id}
+                item_name={menuItem.item_name}
+                image_filename={menuItem.image_filename}
+                description={menuItem.description}
+                price={menuItem.price}
+            />
+        ))
+    ) : (
+        <p>No items available for this selection.</p>
+    )}
+</div>

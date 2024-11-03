@@ -1,0 +1,30 @@
+---
+// DropDown.astro
+export interface DropDownProps {
+    options: Array<{ label: string, value: string }>,
+    selectedValue: string,
+    onChange: (value: string) => void
+}
+
+const { options, selectedValue, onChange } = Astro.props;
+---
+
+<div class="dropdown-container">
+  <label class="dropdown-label" for="dropdown"></label>
+  <select
+    id="dropdown"
+    class="dropdown-select"
+    value={selectedValue}
+    onchange={(event: Event) => onChange((event.target as HTMLSelectElement).value)}
+  >
+    {options.map((option: { label: string, value: string }) => (
+      <option value={option.value} selected={selectedValue === option.value}>
+        {option.label}
+      </option>
+    ))}
+  </select>
+</div>
+
+<style>
+  @import "./styles/DropDown.css";
+</style>

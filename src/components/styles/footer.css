@@ -1,0 +1,11 @@
+/* src/components/styles/footer.css */
+
+.footer a {
+    color: var(--link-color);
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    color: var(--link-hover-color);
+}

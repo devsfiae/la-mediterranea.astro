@@ -17,17 +17,37 @@ npm create astro@latest -- --template basics
 Inside of your Astro project, you'll see the following folders and files:
 
 ```text
-/
-├── public/
-│   └── favicon.svg
+your-astro-project/
+│
+├── public/                    # Public assets accessible to the browser (e.g., favicon, global images)
+│   ├── css/                   
+│   │   └── style.css          # Any legacy or additional global styles (optional, if needed for compatibility)
+│   └── images/                # Image assets used in the project
+│
 ├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/            # All Astro components for modular code
+│   │   ├── Header.astro
+│   │   ├── Footer.astro
+│   │   ├── Slideshow.astro
+│   │   ├── OpeningHours.astro
+│   │   └── styles/            # Component-specific styles organized here
+│   │       ├── header.css
+│   │       ├── footer.css
+│   │       ├── slideshow.css
+│   │       └── openingHours.css
+│   │
+│   ├── layouts/               # Optional: Layout files for consistent templates
+│   │   └── MainLayout.astro   # Main layout (optional, if used for consistent structure)
+│   │
+│   ├── pages/                 # Main pages of the site
+│   │   ├── index.astro        # Main page, imports global styles and components
+│   │   └── about.astro        # Additional pages as needed
+│   │
+│   └── styles/                # Global styles folder
+│       └── global.css         # Contains reset, color variables, fonts, etc.
+│
+└── astro.config.mjs           # Astro project configuration
+└── package.json               # Project dependencies and scripts
 ```
 
 Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.

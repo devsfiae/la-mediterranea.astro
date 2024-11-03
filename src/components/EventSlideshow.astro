@@ -1,0 +1,45 @@
+---
+// src/components/EventSlideshow.astro
+import './styles/slideshow.css';
+---
+
+<div class="slideshow-container">
+    <!-- Slides -->
+    <div class="slide active">
+        <img src="/images/events/01_dj_dayandnight.png" alt="day and night" class="slide-image">
+    </div>
+    <div class="slide">
+        <img src="/images/events/02_sunset_beach_party.jpg" alt="DJ team" class="slide-image">
+    </div>
+    <div class="slide">
+        <img src="/images/events/03_sunset_beach.png" alt="sunset" class="slide-image">
+    </div>
+    <div class="slide">
+        <img src="/images/events/04_evening_band.png" alt="band" class="slide-image">
+    </div>
+    <div class="slide">
+        <img src="/images/events/05_evening_band.png" alt="band" class="slide-image">
+    </div>
+    <div class="slide">
+        <img src="/images/events/06_evening_band.png" alt="band" class="slide-image">
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="navigation">
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+    
+    <!-- Dots for slide indicators -->
+    <div class="slide-footer">
+        <div class="dots-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+        </div>
+    </div>
+</div>
+<script src="/js/slideshow.js" defer></script>

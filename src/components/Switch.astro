@@ -1,0 +1,11 @@
+---
+// src/components/Switch.astro
+// Props for dynamic behavior and styling
+import '.styles/Switch.css';
+// Toggle function will be set in main page script
+const { onToggle } = Astro.props;
+---
+<div class="switch">
+    <input type="checkbox" id="toggle" onchange={onToggle} />
+    <label for="toggle" class="slider"></label>
+</div>
