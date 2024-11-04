@@ -15,7 +15,7 @@ const { options, selectedValue, onChange } = Astro.props as DropDownProps;
     id="dropdown"
     class="dropdown-select"
     value={selectedValue}
-    on:change={(event: Event) => onChange((event.target as HTMLSelectElement).value)}
+    onChange={(event: Event) => onChange((event.target as HTMLSelectElement).value)}
   >
     <option disabled selected>Select an option</option>
     {options.map((option) => (

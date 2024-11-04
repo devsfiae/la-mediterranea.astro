@@ -68,8 +68,28 @@ __Ergebnis:__ Startseite, Reservierungsauswahl und Reservierungsformular sind di
 
 __Aufgaben:__
 
-- [ ] Erstellen von Tests für die grundlegende Funktionalität jeder Hauptseite.  
-- [ ] Überprüfung auf Standard-User-Journey (z.B. Navigation, Verlinkungen, Ladezeiten).
+- [x] Erstellen von Tests für die grundlegende Funktionalität jeder Hauptseite.  
+- [x] Überprüfung auf Standard-User-Journey (z.B. Navigation, Verlinkungen, Ladezeiten).
+
+```typescript
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://la-mediterranea.eu/');
+  await page.locator('label span').click();
+  await page.locator('label span').click();
+  await page.getByText('start').click();
+  await page.getByLabel('food page').click();
+  await page.getByRole('link', { name: 'card' }).click();
+  await page.locator('#category-dropdown').selectOption('8');
+  await page.goto('http://localhost:4321/');
+  await page.getByLabel('about page').click();
+  await page.getByRole('banner').locator('label span').click();
+  await page.locator('#teamCategoryDropdown').selectOption('barista');
+  await page.locator('#teamCategoryDropdown').selectOption('barkeeper');
+  await page.getByRole('img', { name: 'Holger Kramer' }).click();
+});
+```
 
 ---
 
@@ -97,8 +117,8 @@ Slideshows, Bildergalerien und Kontaktformulare sind die Hauptfunktionen, die ge
 
 __Aufgaben:__
 
-- [ ] Testfälle zur Überprüfung der Benutzeroberfläche schreiben (Farben, Schriftgrößen, responsive Layouts).  
-- [ ] Sicherstellen, dass die UI über verschiedene Bildschirmgrößen und Browser funktioniert.
+- [x] Testfälle zur Überprüfung der Benutzeroberfläche schreiben (Farben, Schriftgrößen, responsive Layouts).  
+- [x] Sicherstellen, dass die UI über verschiedene Bildschirmgrößen und Browser funktioniert.
 
 __Ergebnis:__
 PC, Tablet und Smartphone sind die Geräte, die für die Tests verwendet werden.
@@ -135,8 +155,8 @@ Safari: Apple-Browser, der für die Tests verwendet wird.
 
 __Aufgaben:__
 
-- [ ] Ladezeit- und Performance-Tests auf jeder Haupt- und Unterseite durchführen.  
-- [ ] Analyse und Bericht über Engpässe in der Performance.
+- [x] Ladezeit- und Performance-Tests auf jeder Haupt- und Unterseite durchführen.  
+- [x] Analyse und Bericht über Engpässe in der Performance.
 
 __Ergebnis:__
 
@@ -155,6 +175,10 @@ __Aufgaben:__
 
 - [x] Tests für verschiedene Browser (Chrome, Firefox, Safari) ausführen.  
 - [ ] Bericht über Abweichungen und Inkompatibilitäten erstellen.
+
+Weil Heiko eine Abneeigung gegenüber Microsoft Produkten hat, sind nur die Funkionalitäten auf den Endgeräten von Apple funktionstüchtig.
+
+Puya unnd Hiba möchten die Vorteile von Microsoft hervorheben und bieten entsprechende aussagekräftige Testergebnisse an :) 
 
 __Ergebnis:__
 
