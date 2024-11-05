@@ -1,0 +1,23 @@
+---
+// src/layouts/Slideshow.astro
+import './slideshow.css';
+---
+
+<div class="slideshow-container">
+    <!-- Slot for passing in slides -->
+    <slot name="slides" />
+
+    <!-- Navigation Buttons -->
+    <div class="navigation">
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+
+    <!-- Slide Indicators -->
+    <div class="dots-container">
+        <slot name="indicators" />
+    </div>
+</div>
+
+<!-- JavaScript for slideshow functionality -->
+<script src="/js/slideshow.js" defer is:inline></script>

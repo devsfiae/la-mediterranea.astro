@@ -1,13 +1,13 @@
 ---
-// src/pages/Index.astro
-import HomeLayout from '../layouts/HomeLayout.astro';
+// src/pages/index.astro
+import SlideSiteLayout from '../layouts/SlideSite.astro';
 import Header from '../components/Header.astro';
+import Slideshow from '../components/Slideshow.astro';
 import Footer from '../components/Footer.astro';
-import IndexSlideshow from '../components/IndexSlideshow.astro';
 
 ---
 
-<HomeLayout
+<SlideSiteLayout type="home" /
     title="Welcome to La Mediterranea"
     description="Experience Mediterranean vibes at our beach restaurant on Formentera"
     ogImage="/images/website_background.jpg"
@@ -15,6 +15,6 @@ import IndexSlideshow from '../components/IndexSlideshow.astro';
 >
     <title slot="head">Home - La Mediterranea</title>
     <Header slot="header" />
-    <IndexSlideshow slot="slideshow" />
+    <Slideshow slot="slideshow" type="home" /> <!-- Load slides for "home" -->
     <Footer slot="footer" />
-</HomeLayout>
+</SlideSiteLayout>

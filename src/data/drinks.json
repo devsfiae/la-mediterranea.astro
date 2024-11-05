@@ -392,7 +392,7 @@
     "category_id": "2",
     "subcategory_id": "3",
     "degree_id": "3",
-    "image_filename": "",
+    "image_filename": "03_123_kalami_girl.png",
     "subcategory_name": "sweet/creamy",
     "category_name": "drinks",
     "degree_name": "◼︎◼︎◼︎◻︎◻︎◻︎",
@@ -440,12 +440,12 @@
     "category_id": "2",
     "subcategory_id": "3",
     "degree_id": "3",
-    "image_filename": "",
+    "image_filename": "03_126_kama_aina.png",
     "subcategory_name": "sweet/creamy",
     "category_name": "drinks",
     "degree_name": "◼︎◼︎◼︎◻︎◻︎◻︎",
     "menu_price": "10,20 €",
-    "image_path": "/images/icons/no_picture.png"
+    "image_path": "/images/drinks/03_sweet_creamy/03_126_kama_aina.png"
   },
   {
     "item_id": "127",

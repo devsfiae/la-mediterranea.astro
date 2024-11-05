@@ -1,0 +1,18 @@
+---
+// src/components/Slideshow.astro
+
+import { getCollection } from 'astro:content';
+
+// Fetch all slides in the "home" folder from the "slides" collection
+const slides = await getCollection('slides', (slide) => slide.id.startsWith("home/"));
+---
+
+<div class="slideshow-container">
+    {slides.map((slide) => (
+        <div class="slide">
+            <img src={slide.data.image} alt={slide.data.title} class="slide-image" />
+            <h2>{slide.data.title}</h2>
+            <p>{slide.data.description}</p>
+        </div>
+    ))}
+</div>

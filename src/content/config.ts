@@ -22,6 +22,18 @@ const personsCollection = defineCollection({
     }),
 });
 
+export const slideCollections = {
+    slides: defineCollection({
+        schema: z.object({
+        id: z.number(),
+        title: z.string(),
+        description: z.string(),
+        image: z.string(),
+        type: z.enum(['home', 'food', 'drinks', 'reservations', 'events']), // Identify slideshow type
+        }),
+    }),
+};
+
 export const collections = {
     food: foodCollection,
     persons: personsCollection,

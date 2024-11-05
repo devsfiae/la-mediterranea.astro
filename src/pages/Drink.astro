@@ -1,17 +1,22 @@
 ---
 // src/pages/Drink.astro
-import DrinkLayout from '../layouts/DrinkLayout.astro';
-import ButtonLink from '../components/ButtonLink.astro';
+import SlideSideLayout from '../layouts/SlideSideLayout.astro';
+import Button from '../components/ButtonLink.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import DrinkSlideshow from '../components/DrinkSlideshow.astro';
 
 ---
 
-<DrinkLayout
+<SlideSideLayout
     title="drinks @ La Mediterranea"
     description="Unusual inspired cocktail creations"
     ogImage="/images/cocktails/cocktails_banner.png"
     ogUrl="/drink.html"
 >
-    <ButtonLink href="/DrinkCard" label="View Card" class="primary" slot="button" />
+    <title slot="head">Drink - La Mediterranea</title>
+    <Header slot="header" />
+    
     <DrinkSlideshow slot="slideshow" />
-</DrinkLayout>
+    <Footer slot="footer" />
+</SlideSideLayout>

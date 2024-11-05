@@ -8,7 +8,8 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "deploy": "astro build && npx gh-pages -d dist"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -25,7 +26,8 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.48.2",
-    "@types/node": "^22.8.1"
+    "@types/node": "^22.8.1",
+    "gh-pages": "^6.2.0"
   },
   "description": "```sh npm create astro@latest -- --template basics ```",
   "main": "index.js",
