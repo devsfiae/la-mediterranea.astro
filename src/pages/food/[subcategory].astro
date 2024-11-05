@@ -6,11 +6,24 @@ import DropDownFood from '../../components/DropDownFood.astro';
 import '../../styles/global.css';
 import '../../styles/card.css';
 
+export async function getStaticPaths() {
+    const foodEntries = await getCollection('food');
+    
+    // Erstelle eine Liste aller einzigartigen Subkategorien
+    const uniqueSubcategories = Array.from(
+    new Set(foodEntries.map(entry => entry.data.subcategory))
+    );
+
+    // Gib die Pfade für jede Subkategorie zurück
+    return uniqueSubcategories.map(subcategory => ({
+    params: { subcategory },
+    }));
+}
+
 const { subcategory } = Astro.params;
 const publishedFoodEntries = await getCollection('food', ({ data }) => {
-  return data.subcategory == subcategory;
+    return data.subcategory == subcategory;
 });
-
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +62,7 @@ const publishedFoodEntries = await getCollection('food', ({ data }) => {
 
     <script>
         const select = document.getElementById('food-category') as HTMLSelectElement
-        select?.addEventListener('change', e => {
+        select?.addEventListener('change', () => {
             const { value } = select.options[select.selectedIndex]
             document.location.href = `/food/${value}`
         })

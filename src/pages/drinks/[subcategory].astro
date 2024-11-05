@@ -5,9 +5,20 @@ import Header from '../../components/Header.astro';
 import DropDownDrink from '../../components/DropDownDrink.astro';
 import '../../styles/global.css';
 import '../../styles/card.css';
+export async function getStaticPaths() {
+    // Alle einzigartigen Subkategorien aus den Daten filtern
+    const uniqueSubcategories = Array.from(
+    new Set(drinks.map(drink => drink.subcategory_id))
+    );
+
+    // Pfade für jede Subkategorie zurückgeben
+    return uniqueSubcategories.map(subcategory => ({
+    params: { subcategory },
+    }));
+}
+
 const { subcategory } = Astro.params;
 const filteredDrinks = drinks.filter(c => c.subcategory_id === subcategory);
-
 ---
 <!DOCTYPE html>
 <html lang="en">
