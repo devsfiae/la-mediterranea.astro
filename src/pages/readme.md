@@ -196,7 +196,7 @@ __Aufgaben:__
 - [ ] Fehlerberichte und Testresultate sammeln.  
 - [ ] Präsentation der Ergebnisse an das Team.  
 
-![Testresultate](image.png)
+__Ergebnis:__
 
 #### 2. Abschlussbesprechung und Fehlerbehebung
 
