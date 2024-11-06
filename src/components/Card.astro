@@ -4,8 +4,8 @@ export interface CardProps {
     itemName: string;
     imagePath?: string;
     description: string;
-    price: number;
-    volume: number;
+    price: string;
+    volume: string;
     text1: string;
     text2: string;
 }
@@ -24,8 +24,8 @@ const { itemId, itemName, imagePath, description, price, volume, text1, text2 } 
     </div>
     <p>{description}</p>
     <div class="divider-gradient"></div>
-    <div class="card-price"><strong>€{price.toFixed(2)}</strong></div>
+    <div class="card-price">{price}</div>
     <p class="card-text">{text1}</p>
     <p class="card-text">{text2}</p>
-    <p class="card-volume">{volume.toFixed(1)} l</p>
+    <p class="card-volume">{volume}</p>
 </div>

@@ -1,0 +1,48 @@
+---
+// pages/team.astro
+import { getCollection } from 'astro:content';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import TeamCategoryDropown from '../components/TeamCategoryDropown.astro';
+import '../styles/global.css';
+import '../styles/card.css';
+
+const foodItems = await getCollection('persons');
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Team - La Mediterranea</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <!-- Open Graph Meta-Tags -->
+    <meta property="og:title" content="Bar/Restaurant La Mediterranea" />
+    <meta property="og:description" content="team" />
+    <meta property="og:image" content="/images/persons/bartender.png" />
+    <meta property="og:url" content="Team.html" />
+    <meta property="og:type" content="website" />
+    <!-- Responsive Design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <Header />
+  <main class="main-content">
+  <TeamCategoryDropown />
+  <div class="card-container">
+    {foodItems.map((item) => (
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">{item.data.name}</h3>
+          <img class="card-image"src={item.data.image} alt={item.data.name} />
+        </div>
+        <p class="card-description">{item.data.position}</p>
+        <div class="divider-gradient"></div>
+        <p class="card-description">{item.data.description}</p>
+  </div>
+    ))}
+  </main>
+  <Footer />
+</body>
+</html>

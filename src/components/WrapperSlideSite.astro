@@ -1,20 +1,20 @@
 ---
-import Header from './Header.astro';
 import Footer from './Footer.astro';
+import Header from './Header.astro';
 import '../styles/global.css';
 
-const { title } = Astro.props;
+const { title, noFooter } = Astro.props;  // `noFooter` als optionales Prop
 ---
 
 <div id="content-wrapper">
     <Header />
     <slot name="after-header" />
     
-    <!-- Main area with a slot for dynamic content like Slideshow -->
-    <main id="main-content">
+    <!-- Main area with a scrollable slot for dynamic content -->
+    <main id="main-content" class="scrollable-content">
         <slot name="main" />
     </main>
     
-    <slot name="before-footer" />
-    <Footer />
+    <!-- Footer nur anzeigen, wenn `noFooter` nicht gesetzt ist -->
+    { !noFooter && <Footer /> }
 </div>
