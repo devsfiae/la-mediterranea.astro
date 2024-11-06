@@ -1,7 +1,7 @@
 # playwright tests
-playwright-report/
-tests/
-test-results/
+# playwright-report/
+# tests/
+# test-results/
 
 # build output
 dist/
