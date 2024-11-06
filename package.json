@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.48.2",
-    "@types/node": "^22.8.1",
+    "@types/node": "^22.9.0",
     "gh-pages": "^6.2.0"
   },
   "description": "```sh npm create astro@latest -- --template basics ```",
