@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
+test('Web-App La Mediterranea', async ({ page }) => {
   await page.goto('https://la-mediterranea.eu/');
   await page.getByRole('img', { name: 'Bar' }).click();
   await page.getByText('❮').click();

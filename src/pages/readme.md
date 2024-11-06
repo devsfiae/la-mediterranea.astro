@@ -176,10 +176,6 @@ __Aufgaben:__
 - [x] Tests für verschiedene Browser (Chrome, Firefox, Safari) ausführen.  
 - [ ] Bericht über Abweichungen und Inkompatibilitäten erstellen.
 
-Weil Heiko eine Abneeigung gegenüber Microsoft Produkten hat, sind nur die Funkionalitäten auf den Endgeräten von Apple funktionstüchtig.
-
-Puya unnd Hiba möchten die Vorteile von Microsoft hervorheben und bieten entsprechende aussagekräftige Testergebnisse an :) 
-
 __Ergebnis:__
 
 1. Im Stylesheet gibt es Abweichungen bei Safari, da webkit-Prefixe fehlen.
@@ -199,6 +195,8 @@ __Aufgaben:__
 
 - [ ] Fehlerberichte und Testresultate sammeln.  
 - [ ] Präsentation der Ergebnisse an das Team.  
+
+![Testresultate](image.png)
 
 #### 2. Abschlussbesprechung und Fehlerbehebung
 

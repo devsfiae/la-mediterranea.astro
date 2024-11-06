@@ -3,6 +3,7 @@ import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
 testDir: './tests',
+reporter: 'html',
 use: {
     baseURL: 'http://localhost:4321', // Passe den Port an deinen Astro-Server an
     browserName: 'chromium', // Du kannst auch firefox oder webkit verwenden
