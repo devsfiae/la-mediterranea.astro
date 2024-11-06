@@ -1,12 +1,20 @@
 ---
-// src/pages/food.astro
-import SlideSiteLayout from '../layouts/SlideSite.astro';
-import Header from '../components/Header.astro';
+import Wrapper from '../components/WrapperSlideSite.astro';
 import Slideshow from '../components/Slideshow.astro';
-import Footer from '../components/Footer.astro';
+---
 
-<SlideSiteLayout title="Food Menu" description="Explore our food menu" ogImage="/images/food.png" ogUrl="/">
-    <Header slot="header" />
-    <Slideshow slot="slideshow" type="food" />
-    <Footer slot="footer" />
-</SlideSiteLayout>
+<Wrapper 
+    title="Food @ La Mediterranea"
+    description="Mediterranean cuisine at its best"
+    ogImage="/images/website_background.jpg"
+    ogUrl="/"
+>
+    <p slot="after-header">This is a paragraph that will appear after the header.</p>
+    
+    <!-- Slideshow with 'home' type for the homepage -->
+    <Slideshow slot="main" type="food" />
+    
+    <h1>Welcome to La Mediterranea</h1>
+    
+    <p slot="before-footer">Copyright 2024</p>
+</Wrapper>

@@ -2,7 +2,7 @@
 id: 3
 title: "Vegetarian Delights"
 description: "Enjoy a vibrant range of vegetarian dishes, rich in flavors and bursting with wholesome goodness."
-image: "/images/menu/vegetarian_dishes.png"
+image: "/images/food/03_000_vegetarian.png"
 alt: "vegetarian"
 ---
 

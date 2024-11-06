@@ -1,15 +1,15 @@
 ---
-// src/components/Slideshow.astro
-
 import { getCollection } from 'astro:content';
 
-// Fetch all slides in the "home" folder from the "slides" collection
-const slides = await getCollection('slides', (slide) => slide.id.startsWith("home/"));
+const { type } = Astro.props; // `type` kommt als Prop, um die Kategorie zu spezifizieren
+
+// Lädt alle Slides, die mit dem angegebenen `type` beginnen
+const slides = await getCollection('slides', (slide) => slide.id.startsWith(`${type}/`));
 ---
 
 <div class="slideshow-container">
     {slides.map((slide) => (
-        <div class="slide">
+        <div class="slide" key={slide.id}>
             <img src={slide.data.image} alt={slide.data.title} class="slide-image" />
             <h2>{slide.data.title}</h2>
             <p>{slide.data.description}</p>

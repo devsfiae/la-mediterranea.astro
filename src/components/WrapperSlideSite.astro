@@ -1,16 +1,20 @@
 ---
 import Header from './Header.astro';
 import Footer from './Footer.astro';
-import Slideshow from './Slideshow.astro';
 import '../styles/global.css';
 
 const { title } = Astro.props;
 ---
+
 <div id="content-wrapper">
     <Header />
-    <slot name="after-header" />  <!--  children with the `slot="after-header"` attribute will go here -->
-    <Slideshow />
-    <slot />  <!--  children without a `slot`, or with `slot="default"` attribute will go here -->
-    <slot name="before-footer" />  <!--  children with the `slot="before-footer"` attribute will go here -->
+    <slot name="after-header" />
+    
+    <!-- Main area with a slot for dynamic content like Slideshow -->
+    <main id="main-content">
+        <slot name="main" />
+    </main>
+    
+    <slot name="before-footer" />
     <Footer />
 </div>
