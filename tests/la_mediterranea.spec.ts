@@ -6,10 +6,8 @@ test('test', async ({ page }) => {
   await page.locator('#content-wrapper label span').click();
   await page.getByLabel('food page').click();
   await page.getByLabel('drinks page').click();
-  await page.getByText('start food drinks reserve events contact about us light').click();
   await page.getByLabel('event page').click();
   await page.getByLabel('contact page').click();
-  await page.getByText(': Not found Path: /Contact').click();
   await page.getByLabel('about page').click();
   await page.getByRole('heading', { name: 'Heiko Fanieng' }).click();
   await page.getByRole('heading', { name: 'Hiba Al Anssari' }).click();
