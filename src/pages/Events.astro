@@ -1,0 +1,20 @@
+---
+import Wrapper from '../components/WrapperSlideSite.astro';
+import Slideshow from '../components/Slideshow.astro';
+---
+
+<Wrapper 
+    title="Events @ La Mediterranea"
+    description="enjoy our special events"
+    ogImage="/images/website_background.jpg"
+    ogUrl="/"
+>
+    <p slot="after-header">This is a paragraph that will appear after the header.</p>
+    
+    <!-- Slideshow with 'home' type for the homepage -->
+    <Slideshow slot="main" type="events" />
+    
+    <h1>Welcome to La Mediterranea</h1>
+    
+    <p slot="before-footer">Copyright 2024</p>
+</Wrapper>

@@ -1,0 +1,31 @@
+---
+export interface CardProps {
+    itemId: string;
+    itemName: string;
+    imagePath?: string;
+    description: string;
+    price: number;
+    volume: number;
+    text1: string;
+    text2: string;
+}
+
+const { itemId, itemName, imagePath, description, price, volume, text1, text2 } = Astro.props;
+---
+
+<div class="card" data-key={itemId}>
+    <div class="card-header">
+        <h3 class="card-title">{itemName}</h3>
+        <img
+            class="card-image"
+            src={imagePath || '/images/icons/no_picture.png'}
+            alt={itemName}
+        />
+    </div>
+    <p>{description}</p>
+    <div class="divider-gradient"></div>
+    <div class="card-price"><strong>€{price.toFixed(2)}</strong></div>
+    <p class="card-text">{text1}</p>
+    <p class="card-text">{text2}</p>
+    <p class="card-volume">{volume.toFixed(1)} l</p>
+</div>
