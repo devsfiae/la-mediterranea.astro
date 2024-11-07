@@ -174,13 +174,13 @@ __Ergebnis:__
 __Aufgaben:__
 
 - [x] Tests für verschiedene Browser (Chrome, Firefox, Safari) ausführen.  
-- [ ] Bericht über Abweichungen und Inkompatibilitäten erstellen.
+- [x] Bericht über Abweichungen und Inkompatibilitäten erstellen -> siehe Playwright-Reports.
 
 __Ergebnis:__
 
 1. Im Stylesheet gibt es Abweichungen bei Safari, da webkit-Prefixe fehlen.
 2. Die Bildergalerie funktioniert nicht in Firefox, da die CSS-Grid-Unterstützung fehlt.
-3. Die Kontaktseite hat Probleme mit der Schriftgröße in Chrome und Edge.
+3. Die Kontaktseite ist nicht vorhanden
 
 ---
 
@@ -193,8 +193,8 @@ __Ergebnis:__
 
 __Aufgaben:__
 
-- [ ] Fehlerberichte und Testresultate sammeln.  
-- [ ] Präsentation der Ergebnisse an das Team.  
+- [x] Fehlerberichte und Testresultate sammeln.  
+- [x] Präsentation der Ergebnisse an das Team.  
 
 __Ergebnis:__
 
@@ -205,8 +205,17 @@ __Ergebnis:__
 
 __Aufgaben:__
 
-- [ ] Priorisierung von Fehlern und Erstellung eines Bug-Fix-Plans.  
-- [ ] Entscheidung über notwendige Retests und Dokumentation.
+- [x] Priorisierung von Fehlern und Erstellung eines Bug-Fix-Plans.  
+- [x] Entscheidung über notwendige Retests und Dokumentation.
+
+__Ergebnis:__
+
+1. Fehler: Kein Stylesheet bei der Transparenzerklärung
+2. Fehler: Keine Kontaktseite
+3. Fehler: Bildergalerie funktioniert nicht in Firefox
+4. Fehler: Dropdown-Menü der about us Seite funktioniert nicht
+
+Retests sind notwendig für alle Fehler nach Abarbeitung des Bug-Fix-Plans.
 
 ---
 
