@@ -27,6 +27,5 @@ title: Übersicht
 7. **Leistungstests** – Identifizierung und Dokumentation von Ladezeiten und Engpässen.
 8. **Cross-Browser-Tests** – Dokumentation von Abweichungen und Inkompatibilitäten.
 9. **Ergebnisse dokumentieren** – Fehlerberichte und Testresultate zusammenstellen.
-10. **Abschlussbesprechung** – Priorisierung der gefundenen Fehler und Planung für mögliche Nachtests. 
+10. **Abschlussbesprechung** – Priorisierung der gefundenen Fehler und Planung für mögliche Nachtests.
 
-Diese offenen Punkte sollten vorrangig angegangen und dokumentiert werden, um die Tests effektiv abzuschließen.

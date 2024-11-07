@@ -267,3 +267,40 @@ __Überblick über die Testabdeckung und Testergebnisse:__
 - Empfohlene Optimierungen und Bereiche für weitere Tests.
 
 ---
+
+```plaintext
+Testplan für die La Mediterranea Web-App
+├── Vorbereitung und Setup
+│   └── Installation und Konfiguration von Playwright (Tag 1/29.10.2024)
+│       ├── Playwright in Visual Studio Code installieren und konfigurieren
+│       └── Sicherstellen, dass alle Teammitglieder das Setup erfolgreich abgeschlossen haben
+│
+├── Funktionale Tests (Tag 2-4/30.10.2024 - 01.11.2024)
+│   ├── Testen der Navigation zwischen den Seiten
+│   ├── Überprüfen der Funktionalität der Dropdown-Menüs
+│   ├── Validierung der Formulareingaben und -übermittlungen
+│   └── Testen der Slideshow-Komponente
+│
+├── UI-Tests (Tag 5-6/02.11.2024 - 03.11.2024)
+│   ├── Überprüfen des Layouts und der Stile auf verschiedenen Bildschirmgrößen
+│   ├── Sicherstellen, dass alle Bilder korrekt geladen werden
+│   └── Testen der Responsivität der Webseite
+│
+├── Performance-Tests (Tag 7/04.11.2024)
+│   ├── Messen der Ladezeiten der Seiten
+│   ├── Überprüfen der Performance der Slideshow und anderer interaktiver Elemente
+│   └── Identifizieren und Beheben von Performance-Engpässen
+│
+├── Sicherheitstests (Tag 8/05.11.2024)
+│   ├── Überprüfen der Eingabevalidierung auf Sicherheitslücken
+│   ├── Testen der Authentifizierungs- und Autorisierungsmechanismen
+│   └── Sicherstellen, dass sensible Daten korrekt geschützt sind
+│
+├── Abschlussbesprechung und Fehlerbehebung (Tag 9/06.11.2024)
+│   ├── Priorisierung von Fehlern und Erstellung eines Bug-Fix-Plans
+│   └── Entscheidung über notwendige Retests und Dokumentation
+│
+└── Retests und Abschluss (Tag 10/07.11.2024)
+    ├── Durchführung der Retests für alle behobenen Fehler
+    └── Abschlussdokumentation und Übergabe
+```
