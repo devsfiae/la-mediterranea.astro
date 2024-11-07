@@ -30,20 +30,30 @@ your-astro-project/
 │   │   ├── Footer.astro
 │   │   ├── Slideshow.astro
 │   │   ├── OpeningHours.astro
+│   │   ├── WrapperSlideSite.astro
+│   │   ├── DropDownFood.astro
 │   │   └── styles/            # Component-specific styles organized here
 │   │       ├── header.css
 │   │       ├── footer.css
 │   │       ├── slideshow.css
-│   │       └── openingHours.css
+│   │       ├── openingHours.css
+│   │       ├── wrapperSlideSite.css
+│   │       └── dropDownFood.css
 │   │
 │   ├── layouts/               # Optional: Layout files for consistent templates
 │   │   └── MainLayout.astro   # Main layout (optional, if used for consistent structure)
 │   │
 │   ├── pages/                 # Main pages of the site
 │   │   ├── index.astro        # Main page, imports global styles and components
+│   │   ├── food/
+│   │   │   ├── index.astro    # Food main page
+│   │   │   └── [subcategory].astro # Dynamic subcategory pages
+│   │   ├── drink.astro        # Additional pages as needed
+│   │   ├── reserve.astro      # Additional pages as needed
+│   │   ├── contact.astro      # Additional pages as needed
 │   │   └── about.astro        # Additional pages as needed
 │   │
-│   └── styles/                # Global styles folder
+│   └��─ styles/                # Global styles folder
 │       └── global.css         # Contains reset, color variables, fonts, etc.
 │
 └── astro.config.mjs           # Astro project configuration
