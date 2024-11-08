@@ -55,7 +55,7 @@ __Aufgaben:__
 - [x] Definition von Testzielen, Testumfang und Testfällen pro Seite und Unterseite.  
 - [x] Festlegen, welche Seiten für UI-, Funktionalitäts- und Leistungstests priorisiert werden.
 
-__Ergebnis:__ Startseite, Reservierungsauswahl und Reservierungsformular sind die Hauptseiten, die priorisiert getestet werden.
+__Ergebnis:__ start, food, drinks, contact und about us sind die Hauptseiten, welche priorisiert getestet werden.
 
 ---
 
@@ -104,7 +104,7 @@ __Aufgaben:__
 - [x] Eventuelle Probleme oder Blocker für jede Seite dokumentieren.
 
 __Ergebnis:__
-Slideshows, Bildergalerien und Kontaktformulare sind die Hauptfunktionen, die getestet werden.
+Slideshows und Bildergalerien sind die Hauptfunktionen, die getestet werden.
 
 ---
 
@@ -137,8 +137,10 @@ Ein bis zwei enddeckte Fehler sind zu erwarten und zu dokumentieren.
 
 __Ergebnis:__
 
-1. Fehler: Kein Stylesheet bei der Transparenzerklärung
-2. Fehler: Falsche Schriftgröße bei den Kontaktinformationen
+1. Fehler: Falsche Kartenreihenfolge bei den Teammitgliedern und Kunden
+2. Fehler: Kontaktseite fehlt
+
+Tests und Screenshot siehe Playwright-Reports.
 
 ---
 
@@ -197,6 +199,8 @@ __Aufgaben:__
 - [x] Präsentation der Ergebnisse an das Team.  
 
 __Ergebnis:__
+
+Siehe Playwright-Reports und Dokumentation.
 
 #### 2. Abschlussbesprechung und Fehlerbehebung
 
