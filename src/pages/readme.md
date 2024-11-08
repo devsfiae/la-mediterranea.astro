@@ -6,6 +6,36 @@ layout: "../styles/MarkdownLayout.astro"
 
 ## Zeitplanung (Rahmen: 29.10.2024 - 07.11.2024)
 
+```mermaid
+gantt
+    
+    dateFormat  DD-MM-YYYY
+    excludes    weekends
+
+    section Vorbereitung und Setup
+    Installation und Konfiguration von Playwright :done, a1, 2024-10-29, 1d
+    Projekt- und Teststruktur aufbauen :done, a2, 2024-10-29, 2d
+
+    section Anforderungsanalyse
+    Teststrategie und Anforderungsanalyse :done, a3, 2024-10-31, 1d
+
+    section Testphase 1: Funktionale Tests
+    Erstellen von Testfällen für Hauptseiten :done, b1, 2024-11-01, 2d
+    Erstellen von Testfällen für Unterseiten :done, b2, 2024-11-01, 2d
+
+    section Testphase 2: UI-Tests
+    Testskripte für UI-Checks entwickeln :done, c1, 2024-11-01, 2d
+    Automatisierte visuelle Regressionstests :done, c2, 2024-11-03, 1d
+
+    section Testphase 3: Leistungstests und Cross-Browser-Tests
+    Leistungstests durchführen :done, d1, 2024-11-04, 1d
+    Cross-Browser-Tests mit Playwright :done, d2, 2024-11-05, 1d
+
+    section Abschlussphase
+    Ergebnisse sammeln und dokumentieren :done, e1, 2024-11-06, 1d
+    Abschlussbesprechung und Fehlerbehebung :done, e2, 2024-11-07, 1d
+```
+
 ### Vorbereitung und Setup
 
 #### 1. Installation und Konfiguration von Playwright (Tag 1/29.10.2024)
@@ -56,6 +86,14 @@ __Aufgaben:__
 - [x] Festlegen, welche Seiten für UI-, Funktionalitäts- und Leistungstests priorisiert werden.
 
 __Ergebnis:__ start, food, drinks, contact und about us sind die Hauptseiten, welche priorisiert getestet werden.
+
+```plaintext
+npx playwright show-report
+```
+
+```plaintext
+http://localhost:9323
+```
 
 ---
 
@@ -131,7 +169,7 @@ PC, Tablet und Smartphone sind die Geräte, die für die Tests verwendet werden.
 __Aufgaben:__
 
 - [x] Visuelle Regressionstests mit Screenshots vornehmen.  
-- [ ] Fehlerberichte über Design- und Layoutabweichungen erstellen.
+- [x] Fehlerberichte über Design- und Layoutabweichungen erstellen.
 
 Ein bis zwei enddeckte Fehler sind zu erwarten und zu dokumentieren.
 
@@ -162,9 +200,7 @@ __Aufgaben:__
 
 __Ergebnis:__
 
-1. Startseite: Ladezeit 2,5 Sekunden, keine Engpässe.
-2. Reservierungsformular: Ladezeit 3,5 Sekunden, Engpass bei der Validierung.
-3. Kontaktseite: Ladezeit 1,8 Sekunden, keine Engpässe.
+Siehe Playwright-Reports.
 
 ---
 
