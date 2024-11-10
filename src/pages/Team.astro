@@ -1,35 +1,37 @@
 ---
-import { getCollection } from 'astro:content';
 import Wrapper from '../components/WrapperSlideSite.astro';
 import TeamCategoryDropdown from '../components/TeamCategoryDropown.astro';
 import Card from '../components/Card.astro';
 import '../styles/global.css';
 
-const teamMembers = await getCollection('persons');
----
+const response = await fetch('https://la-mediterranea.eu/api/person_items.php?category=10');
+const data = await response.json();
 
-<Wrapper 
+// Greife auf das `results`-Array zu
+const personItems = data.results;
+
+if (!personItems || personItems.length === 0) {
+    throw new Error("person items data is empty or undefined.");
+}
+---
+<Wrapper
     charset="UTF-8"
-    title="Team - La Mediterranea"
-    description="Meet the dedicated team behind La Mediterranea."
+    title="Persons - La Mediterranea"
+    description="our fantastic team and our guests"
     ogImage="/images/persons/bartender.png"
-    ogUrl="/team.html"
-    viewport="width=device-width, initial-scale=1.0"
+    ogUrl="Team.html"
     noFooter={true} 
 >
     <TeamCategoryDropdown slot="after-header" />
-    
+
     <div slot="main" class="card-container scrollable-content">
-        {teamMembers.map((member) => (
+        {personItems.map(personItem => (
             <Card
-                itemId={member.id}
-                itemName={member.data.name}
-                imagePath={member.data.image}
-                description={member.data.description}
-                price=""
-                volume=""
-                text1={member.data.position}
-                text2=""
+                itemId={personItem.item_id}
+                itemName={personItem.first_name}
+                image={`../images/persons/${personItem.image_item_name}`}
+                description={personItem.description}
+                price={personItem.subcategory_item_name}
             />
         ))}
     </div>

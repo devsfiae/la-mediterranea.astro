@@ -101,7 +101,7 @@
 | ---- | ---- | --- | --- | ---- |
 | 1 | person_item_id |int(11) | __primary__ | |
 | 2 | first_name | varchar(255) | | |
-| 3 | last_lastname | varchar(255) | | |
+| 3 | last_name | varchar(255) | | |
 | 3 | description | varchar(255) | | |
 | 6 | category_id | int(11) | __foreign__ | __category_items__ |
 | 7 | email_id| int(11) | __foreign__ | __email_items__ |
@@ -168,7 +168,7 @@
 | ---- | ---- | --- | --- | ---- |
 | 1 | table_item_id |int(11) | __primary__ | |
 | 2 | item_name | varchar(255) | | |
-| 1 | image_id |int(11) | __foreign__ | table_items |
+| 1 | image_id |int(11) | __foreign__ | __table_items__ |
 
 ### table values
 
