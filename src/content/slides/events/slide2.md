@@ -2,7 +2,7 @@
 id: 2
 title: "Sunset Beach Party"
 description: "Dance as the sun sets with our talented DJ team, bringing the best beach vibes."
-image: "/images/events/02_sunset_beach_party.jpg"
+image: "/images/events/sunset_beach_party.jpg"
 alt: "DJ team"
 ---
 

@@ -2,7 +2,7 @@
 id: 5
 title: "Evening Band Encore"
 description: "Catch an encore performance by our talented band, playing crowd favorites and new hits."
-image: "/images/events/05_evening_band.png"
+image: "/images/events/evening_band.png"
 alt: "band"
 ---
 

@@ -1,20 +1,43 @@
 ---
+// src/components/WrapperSlideSite.astro
 import Footer from './Footer.astro';
 import Header from './Header.astro';
 import '../styles/global.css';
 
-const { title, noFooter } = Astro.props;  // `noFooter` als optionales Prop
+const { charset = "UTF-8", title, description, ogImage, ogUrl, viewport = "width=device-width, initial-scale=1.0", noFooter } = Astro.props;
 ---
 
-<div id="content-wrapper">
-    <Header />
-    <slot name="after-header" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset={charset} />
+    <title>{title}</title>
+    <meta name="viewport" content={viewport} />
+    <meta name="description" content={description} />
     
-    <!-- Main area with a scrollable slot for dynamic content -->
-    <main id="main-content" class="scrollable-content">
-        <slot name="main" />
-    </main>
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={ogUrl} />
     
-    <!-- Footer nur anzeigen, wenn `noFooter` nicht gesetzt ist -->
-    { !noFooter && <Footer /> }
-</div>
+
+</head>
+<body>
+    <div id="content-wrapper">
+        <!-- Include Header -->
+        <Header />
+
+        <!-- Slot for content directly after the header -->
+        <slot name="after-header" />
+
+        <!-- Main content area -->
+        <main id="main-content" class="scrollable-content">
+            <slot name="main" />
+        </main>
+
+        <!-- Conditionally render Footer if `noFooter` is not set to true -->
+        { !noFooter && <Footer /> }
+    </div>
+</body>
+</html>

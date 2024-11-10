@@ -2,7 +2,7 @@
 id: 2
 title: "Fruity & Sweet"
 description: "Indulge in the sweetness of fresh fruits blended to perfection for a delightful, dessert-like drink."
-image: "/images/drinks/02_000_fruity_sweet.png"
+image: "/images/drinks/fruity_sweet.png"
 alt: "fruity/sweet"
 ---
 

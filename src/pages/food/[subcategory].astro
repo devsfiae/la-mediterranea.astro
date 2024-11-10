@@ -1,71 +1,57 @@
 ---
-// src/pages/food/[subcategory].astro
 import { getCollection } from 'astro:content';
 import Header from '../../components/Header.astro';
-import DropDownFood from '../../components/DropDownFood.astro';
 import '../../styles/global.css';
 import '../../styles/card.css';
 
 export async function getStaticPaths() {
-    const foodEntries = await getCollection('food');
-    
-    // Erstelle eine Liste aller einzigartigen Subkategorien
-    const uniqueSubcategories = Array.from(
-    new Set(foodEntries.map(entry => entry.data.subcategory))
-    );
+    const items = await getCollection('menu');
+    const foodItems = items.filter(item => item.data.category_name.toLowerCase() === 'food');
+    const uniqueSubcategoryIds = Array.from(new Set(foodItems.map(item => item.data.subcategory_id)));
 
-    // Gib die Pfade für jede Subkategorie zurück
-    return uniqueSubcategories.map(subcategory => ({
-    params: { subcategory },
+    // Log the paths generated
+    console.log("Generated paths for subcategory IDs:", uniqueSubcategoryIds);
+
+    return uniqueSubcategoryIds.map(subcategoryId => ({
+        params: { subcategory: subcategoryId },
     }));
 }
 
 const { subcategory } = Astro.params;
-const publishedFoodEntries = await getCollection('food', ({ data }) => {
-    return data.subcategory == subcategory;
-});
+const items = await getCollection('menu');
+const filteredFoodItems = items.filter(item => 
+    item.data.category_name.toLowerCase() === 'food' &&
+    item.data.subcategory_id === subcategory
+);
 ---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>food @La Mediterranea</title>
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <meta property="og:title" content="food @La Mediterranea">
-    <meta property="og:description" content="mediterranean and international delicacies">
-    <meta property="og:image" content="images/drinks/cocktails_banner.png">
-    <meta property="og:url" content="/food/${subcategory}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food - {subcategory} @La Mediterranea</title>
 </head>
 
 <body>
     <Header />
     <main class="main-content">
-        <div class="subheader"></div>
-            <DropDownFood />
-        </div>
+        <h1>{subcategory} Food</h1>
+
+        <!-- Display filtered food items for the subcategory -->
         <div class="card-container">
-            {publishedFoodEntries.map((item: { id: string, slug: string, body: string, collection: string, data: { subcategory: string, id: number, name: string, description: string, price: number, image?: string } }) => (
-                <div class="card">
+            {filteredFoodItems.map((food) => (
+                <div class="card" key={food.id}>
                     <div class="card-header">
-                        <h3 class="card-title">{item.data.name}</h3>
-                        <img class="card-image" src={item.data.image} alt={item.data.name} />
+                        <h3 class="card-title">{food.data.item_name}</h3>
+                        <img class="card-image" src={food.data.image_path || '/images/icons/no_picture.png'} alt={food.data.item_name} />
                     </div>
-                    <p class="card-description">{item.data.description}</p>
+                    <p>{food.data.description}</p>
                     <div class="divider-gradient"></div>
-                    <div class="card-price">{item.data.price} €</div>
+                    <div class="card-price"><strong>{food.data.menu_price}</strong></div>
+                    <p class="card-description">{food.data.volume} l</p>
                 </div>
             ))}
         </div>
-
     </main>
-
-    <script>
-        const select = document.getElementById('food-category') as HTMLSelectElement
-        select?.addEventListener('change', () => {
-            const { value } = select.options[select.selectedIndex]
-            document.location.href = `/food/${value}`
-        })
-    </script>
 </body>
 </html>

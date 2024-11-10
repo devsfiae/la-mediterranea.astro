@@ -2,7 +2,7 @@
 id: 5
 title: "Sunday"
 description: "End your week with a relaxing Sunday evening, with seating available at 5:00 PM and 7:00 PM."
-image: "/images/days/07_sunday.png"
+image: "/images/days/sunday.png"
 alt: "Sunday"
 ---
 

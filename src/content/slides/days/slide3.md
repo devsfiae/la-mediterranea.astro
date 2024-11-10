@@ -2,7 +2,7 @@
 id: 3
 title: "Friday"
 description: "Kick off the weekend with seating times at 5:00 PM, 7:00 PM, and 9:00 PM."
-image: "/images/days/05_friday.png"
+image: "/images/days/friday.png"
 alt: "Friday"
 ---
 

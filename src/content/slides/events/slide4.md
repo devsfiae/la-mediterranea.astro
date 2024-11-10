@@ -2,7 +2,7 @@
 id: 4
 title: "Evening Band Performance"
 description: "Enjoy live music by our band in a cozy evening setting. Perfect for a night out."
-image: "/images/events/04_evening_band.png"
+image: "/images/events/evening_band.png"
 alt: "band"
 ---
 

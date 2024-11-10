@@ -1,15 +1,19 @@
 import { defineCollection, z } from 'astro:content';
 
-const foodCollection = defineCollection({
-    schema: z.object({
-        id: z.number(),
-        name: z.string(),
-        description: z.string(),
-        price: z.number(),
-        subcategory: z.string(), // Meat dishes or seafood specialties
-        image: z.string().optional(),
-    }),
-});
+const countries = defineCollection({
+    loader: async () => {
+      const response = await fetch("https://restcountries.com/v3.1/all");
+      const data = await response.json();
+      // Must return an array of entries with an id property, or an object with IDs as keys and entries as values
+      return data.map((country) => ({
+        id: country.cca3,
+        ...country,
+
+      }));
+
+    },
+    schema: /* ... */
+  });
 
 const personsCollection = defineCollection({
     schema: z.object({
@@ -35,7 +39,6 @@ export const slideCollections = {
 };
 
 export const collections = {
-    food: foodCollection,
+    countries: countries,
     persons: personsCollection,
 };
-

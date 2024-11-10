@@ -2,7 +2,7 @@
 id: 3
 title: "Sweet & Creamy"
 description: "A rich and creamy treat, perfect for those who enjoy a luxurious and smooth cocktail experience."
-image: "/images/drinks/03_000_sweet_creamy.png"
+image: "/images/drinks/sweet_creamy.png"
 alt: "sweet/creamy"
 ---
 

@@ -4,16 +4,17 @@ import Wrapper from '../components/WrapperSlideSite.astro';
 import TeamCategoryDropdown from '../components/TeamCategoryDropown.astro';
 import Card from '../components/Card.astro';
 import '../styles/global.css';
-import '../styles/card.css';
 
 const teamMembers = await getCollection('persons');
 ---
 
 <Wrapper 
+    charset="UTF-8"
     title="Team - La Mediterranea"
     description="Meet the dedicated team behind La Mediterranea."
     ogImage="/images/persons/bartender.png"
     ogUrl="/team.html"
+    viewport="width=device-width, initial-scale=1.0"
     noFooter={true} 
 >
     <TeamCategoryDropdown slot="after-header" />

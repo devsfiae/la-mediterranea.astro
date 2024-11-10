@@ -3,6 +3,7 @@ import Wrapper from '../components/WrapperSlideSite.astro';
 import FoodCategoryDropdown from '../components/FoodCategoryDropown.astro';
 import Card from '../components/Card.astro';
 import '../styles/global.css';
+import '../styles/card.css';
 
 const response = await fetch('https://la-mediterranea.eu/api/menu_items.php?category=30');
 const data = await response.json();

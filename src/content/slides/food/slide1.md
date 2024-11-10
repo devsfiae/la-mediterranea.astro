@@ -2,7 +2,7 @@
 id: 1
 title: "Delicious Meat Dishes"
 description: "Savor a selection of premium grilled beef dishes, cooked to perfection for meat lovers."
-image: "/images/food/01_000_meat.png"
+image: "/images/food/meat.png"
 alt: "meat"
 ---
 

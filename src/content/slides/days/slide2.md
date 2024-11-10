@@ -2,7 +2,7 @@
 id: 2
 title: "Thursday"
 description: "Spend your Thursday evening with us, with seating available at 5:00 PM and 7:00 PM."
-image: "/images/days/04_thursday.png"
+image: "/images/days/thursday.png"
 alt: "Thursday"
 ---
 
