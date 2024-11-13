@@ -1,18 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
+import SlideshowComponent from '../components/Slideshow.jsx';
 
-const { type } = Astro.props; // `type` kommt als Prop, um die Kategorie zu spezifizieren
+const { type } = Astro.props;
 
-// Lädt alle Slides, die mit dem angegebenen `type` beginnen
-const slides = await getCollection('slides', (slide) => slide.id.startsWith(`${type}/`));
+const slides = await getCollection(
+  'slides',
+  (slide) => slide.slug.startsWith(`${type}/`)
+);
 ---
 
-<div class="slideshow-container">
-    {slides.map((slide) => (
-        <div class="slide" key={slide.id}>
-            <img src={slide.data.image} alt={slide.data.title} class="slide-image" />
-            <h2>{slide.data.title}</h2>
-            <p>{slide.data.description}</p>
-        </div>
-    ))}
-</div>
+<SlideshowComponent slides={slides} client:idle />
