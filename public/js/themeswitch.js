@@ -1,3 +1,4 @@
+// public/js/themeswitch.js
 document.addEventListener('DOMContentLoaded', () => {
     const themeCheckbox = document.getElementById('theme-checkbox');
     const modeText = document.getElementById('mode-text');

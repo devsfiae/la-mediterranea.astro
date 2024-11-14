@@ -1,3 +1,4 @@
+// puplic/js/slideshow.js
 let slideIndex = 1;
 
 function initializeSlides() {
