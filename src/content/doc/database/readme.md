@@ -69,6 +69,21 @@
 
 ---
 
+## image_items
+
+### image structure
+
+### image values
+
+### image inserts
+
+```sql
+INSERT INTO `image_items` (`item_name`) 
+VALUES ('zombie.png'), ('mojito.png');
+```
+
+---
+
 ## menu_items
 
 ### menu structure

@@ -1,0 +1,71 @@
+---
+// src/components/Header.astro
+import ThemeSwitch from './ThemeSwitch.astro';
+---
+<header class="header">
+    <div class="logo">
+        <a href="/index.html" aria-label="start page">&nbsp;</a>
+    </div>
+    <nav class="header-center">
+    <ul>
+      <li><a href="/index.html" aria-label="start page">start</a></li>
+      <li><a href="/Food" aria-label="food page">food</a></li>
+      <li><a href="/Drinks" aria-label="drinks page">drinks</a></li>
+      <li><a href="/Bookings" aria-label="bookings page">reserve</a></li>
+      <li><a href="/Events" aria-label="event page">events</a></li>
+      <li><a href="/Contact" aria-label="contact page">contact</a></li>
+      <li><a href="/About" aria-label="about page">about us</a></li>
+    </ul>
+  </nav>
+  <div class="header-right">
+    <!-- Integration of the ThemeSwitch component -->
+    <ThemeSwitch />
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height, 50px);
+    background-color: var(--primary-color, #0A84FF);
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo a {
+    display: block;
+    height: 40px;
+    /* You can add further logo styles here */
+  }
+
+  .header-center ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+  }
+
+  .header-center ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+
+  .header-center ul li a:hover {
+    color: var(--link-hover-color, #005BB5);
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+</style>

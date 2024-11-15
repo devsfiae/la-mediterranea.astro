@@ -1,5 +1,5 @@
 ---
-import Wrapper from '../components/WrapperSlideSite.astro';
+import Wrapper from '../components/Wrapper.astro';
 import FoodCategoryDropdown from '../components/FoodCategoryDropown.astro';
 import Card from '../components/Card.astro';
 import '../styles/global.css';
@@ -35,4 +35,6 @@ if (!menuItems || menuItems.length === 0) {
             />
         ))}
     </div>
+
+    <FoodCategoryDropdown slot="before-footer" />
 </Wrapper>

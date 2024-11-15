@@ -1,0 +1,103 @@
+/* src/components/react/slideshow.module.css */
+
+.slideshowContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 2;
+}
+
+.slideActive {
+  display: block;
+}
+
+.slideImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slideContent {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  z-index: 3;
+  max-width: 80%;
+}
+
+.slideContent h2 {
+  font-size: 3rem; /* Overwrites the global font size */
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.slideContent p {
+  font-size: 1.5rem; /* Overwrites the global font size */
+  margin-top: 1rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Navigation buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  -webkit-user-select: none;
+  user-select: none;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
+
+/* Dots Container */
+.dotsContainer {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}
+
+/* Dots */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 5px;
+  background-color: rgba(187, 187, 187, 0.8);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dotActive,
+.dot:hover {
+  background-color: rgba(113, 113, 113, 0.8);
+}

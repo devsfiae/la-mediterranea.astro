@@ -1,31 +1,154 @@
 ---
 // src/components/Header.astro
-import './styles/header.css';
+
+import ThemeSwitch from './ThemeSwitch.astro';
+
+const { showDropdowns = false } = Astro.props;
 ---
+
 <header class="header">
-    <div class="logo">
-        <a href="/index.html" aria-label="start page">&nbsp;</a>
-    </div>
-    <nav class="header-center">
-        <ul>
-            <li><a href="/index.html" aria-label="start page">start</a></li>
-            <li><a href="/Food" aria-label="food page">food</a></li>
-            <li><a href="/Drinks" aria-label="drinks page">drinks</a></li>
-            <li><a href="/Days" aria-label="reservation page">reserve</a></li>
-            <li><a href="/Events" aria-label="event page">events</a></li>
-            <li><a href="/Contact" aria-label="contact page">contact</a></li>
-            <li><a href="/Team" aria-label="about page">about us</a></li>
+  <div class="logo">
+    <a href="/index.html" aria-label="Starting Page">&nbsp;</a>
+  </div>
+  <nav class="header-nav">
+    <ul>
+      <li><a href="/index.html" aria-label="Go to Start Page">Start</a></li>
+      <li class="menu-item">
+        <a href="/Food" aria-label="View Food Menu">Food</a>
+        <ul class="dropdown-content">
+          <li><a href="/Food/Meat" aria-label="View Meat">Meat</a></li>
+          <li><a href="/Food/Seafood" aria-label="View Seafood">Seafood</a></li>
+          <li><a href="/Food/Vegetarian" aria-label="View Vegetarian">Vegetarian</a></li>
+          <li><a href="/Food/Desserts" aria-label="View Desserts">Desserts</a></li>
         </ul>
-    </nav>
-    <div class="header-right">
-        <div class="theme-switch-wrapper">
-            <label class="theme-switch">
-                <input type="checkbox" id="theme-checkbox" title="dark/light">
-                <span class="slider round"></span>
-            </label>
-            <span class="mode-text" id="mode-text">light</span>
-        </div>
-    </div>
+      </li>
+      <li class="menu-item">
+        <a href="/Drinks" aria-label="View Drinks Menu">Drinks</a>
+        <ul class="dropdown-content">
+          <li><a href="/Drinks/Non-Alcoholic" aria-label="View Non-Alcoholic Drinks">Non-Alcoholic</a></li>
+          <li><a href="/Drinks/Alcoholic" aria-label="View Alcoholic Drinks">Alcoholic</a></li>
+          <li><a href="/Drinks/Hot" aria-label="View Hot Drinks">Hot</a></li>
+        </ul>
+      </li>
+      <li><a href="/Booking" aria-label="Make a Reservation">Reserve</a></li>
+      <li><a href="/Events" aria-label="View Events">Events</a></li>
+      <li><a href="/Contact" aria-label="Contact Us">Contact</a></li>
+      <li><a href="/Team" aria-label="Learn About Us">About Us</a></li>
+    </ul>
+  </nav>
+  <div class="header-right">
+    <ThemeSwitch />
+  </div>
 </header>
 
-<script src="/js/themeswitch.js" defer is:inline></script>
+
+<style>
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height, 60px);
+  background-color: var(--primary-color, #0A84FF);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+  .logo a {
+    display: block;
+    height: 40px;
+    /* Weitere Logo-Stile */
+  }
+.header-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header-nav ul li {
+    position: relative;
+  }
+
+  .header-nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+  }
+
+  .header-nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Dropdown-Menü Styles */
+  .header-nav.with-dropdowns .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--primary-color, #0A84FF);
+    min-width: 160px;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  }
+
+  .header-nav.with-dropdowns .dropdown-content li {
+    display: block;
+  }
+
+  .header-nav.with-dropdowns .dropdown-content li a {
+    padding: 12px 16px;
+  }
+
+  .header-nav.with-dropdowns .dropdown-content li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Zeige das Dropdown beim Hovern an */
+  .header-nav.with-dropdowns ul li:hover .dropdown-content {
+    display: block;
+  }
+
+  /* Responsives Design */
+  @media (max-width: 768px) {
+    .header-nav ul {
+      flex-direction: column;
+      background-color: var(--primary-color, #0A84FF);
+      position: absolute;
+      top: var(--header-height, 60px);
+      left: 0;
+      width: 100%;
+      display: none;
+    }
+
+    .header-nav ul li {
+      text-align: center;
+    }
+
+    .header-nav ul li:hover .dropdown-content {
+      position: static;
+    }
+
+    .header-nav.active ul {
+      display: flex;
+    }
+
+    /* Hamburger-Menü-Button */
+    .menu-toggle {
+      display: block;
+      cursor: pointer;
+    }
+
+    .header-right {
+      display: none;
+    }
+  }
+  
+  
+</style>

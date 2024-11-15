@@ -1,0 +1,44 @@
+---
+// src/components/Wrapper.astro
+const {
+    charset = "UTF-8",
+    title,
+    description,
+    ogImage,
+    ogUrl,
+    viewport = "width=device-width, initial-scale=1.0",
+    mainClass = "scrollable-content",
+    showDropdowns = false
+} = Astro.props;
+import Header from './Header.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset={charset} />
+    <title>{title}</title>
+    <meta name="viewport" content={viewport} />
+    <meta name="description" content={description} />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={ogUrl} />
+</head>
+<body>
+    <div id="content-wrapper">
+        <!-- Include Header und übergebe `showDropdowns` -->
+        <Header showDropdowns={showDropdowns} />
+
+        <!-- Slot for content directly after the header -->
+        <slot name="after-header" />
+
+        <!-- Main content area -->
+        <main id="main-content" class={mainClass}>
+            <slot name="main" />
+        </main>
+    </div>
+</body>
+</html>

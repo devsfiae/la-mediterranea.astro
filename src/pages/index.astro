@@ -1,23 +1,58 @@
 ---
 // src/pages/index.astro
-import Wrapper from '../components/WrapperSlideSite.astro';
-import Slideshow from '../components/Slideshow.astro';
+import Wrapper from '../components/Wrapper.astro';
+import Slideshow from '../components/react/Slideshow.jsx';
+import '../styles/global.css';
+
+const pageResponse = await fetch('https://la-mediterranea.eu/api/page_items.php?subcategory=601');
+const pageData = await pageResponse.json();
+const pageItems = pageData.results;
+const { url } = Astro; // Extract `url` from `Astro
+const showDropdowns = false;
+
+if (!pageItems || pageItems.length === 0) {
+  throw new Error("Page items data is empty or undefined.");
+}
+
+// Fetch slides serverseitig
+const slidesResponse = await fetch('https://la-mediterranea.eu/api/slide_items.php?subcategory=601');
+const slidesData = await slidesResponse.json();
+
+const slides = slidesData.results;
+
+if (!slides || slides.length === 0) {
+  throw new Error("Slides data is empty or undefined.");
+}
 ---
 
 <Wrapper
-    charset="UTF-8"
-    title="Welcome to La Mediterranea"
-    description="Experience Mediterranean vibes at our beach restaurant on Formentera"
-    ogImage="/images/website_background.jpg"
-    ogUrl="/"
-    viewport="width=device-width, initial-scale=1.0"
+  charset="UTF-8"
+  title={pageItems[0].title}
+  description={pageItems[0].description}
+  ogImage={`/images/slides/${pageItems[0].image_item_name}`}
+  ogUrl="/"
+  viewport="width=device-width, initial-scale=1.0"
+  showDropdowns={showDropdowns} 
 >
-    <p slot="after-header">This is a paragraph that will appear after the header.</p>
-    
-    <!-- Slideshow with 'home' type for the homepage -->
-    <Slideshow slot="main" type="home" />
-    
-    <h1>Welcome to La Mediterranea</h1>
-    
-    <p slot="before-footer">Copyright 2024</p>
+  <!-- Header-after Slot -->
+  <div slot="after-header" class="header-after">
+    <!-- Optionaler Inhalt -->
+  </div>
+
+  <!-- Hauptinhalt -->
+  <main slot="main">
+    <div class="slideshow-wrapper">
+      <Slideshow slides={slides} client:load />
+    </div>
+  </main>
 </Wrapper>
+
+<style>
+  .slideshow-wrapper {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    overflow: hidden;
+    margin-top: var(--header-height);
+  }
+</style>
