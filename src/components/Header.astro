@@ -1,20 +1,18 @@
 ---
-// src/components/Header.astro
-
+// src/components/ThemeSwitch.astro
 import ThemeSwitch from './ThemeSwitch.astro';
-
-const { showDropdowns = false } = Astro.props;
 ---
-
 <header class="header">
   <div class="logo">
     <a href="/index.html" aria-label="Starting Page">&nbsp;</a>
   </div>
   <nav class="header-nav">
     <ul>
-      <li><a href="/index.html" aria-label="Go to Start Page">Start</a></li>
-      <li class="menu-item">
-        <a href="/Food" aria-label="View Food Menu">Food</a>
+      <li>
+        <a href="/index.html" aria-label="Go to Start Page">Start</a>
+      </li>
+      <li class="dropdown">
+        <a href="/Food" class="dropbtn" aria-label="View Food Menu">Food</a>
         <ul class="dropdown-content">
           <li><a href="/Food/Meat" aria-label="View Meat">Meat</a></li>
           <li><a href="/Food/Seafood" aria-label="View Seafood">Seafood</a></li>
@@ -22,15 +20,22 @@ const { showDropdowns = false } = Astro.props;
           <li><a href="/Food/Desserts" aria-label="View Desserts">Desserts</a></li>
         </ul>
       </li>
-      <li class="menu-item">
-        <a href="/Drinks" aria-label="View Drinks Menu">Drinks</a>
+      <li class="dropdown">
+        <a href="/Drinks" class="dropbtn" aria-label="View Drinks Menu">Drinks</a>
         <ul class="dropdown-content">
           <li><a href="/Drinks/Non-Alcoholic" aria-label="View Non-Alcoholic Drinks">Non-Alcoholic</a></li>
           <li><a href="/Drinks/Alcoholic" aria-label="View Alcoholic Drinks">Alcoholic</a></li>
           <li><a href="/Drinks/Hot" aria-label="View Hot Drinks">Hot</a></li>
         </ul>
       </li>
-      <li><a href="/Booking" aria-label="Make a Reservation">Reserve</a></li>
+      <li class="dropdown">
+        <a href="/Booking" class="dropbtn" aria-label="View Bookings Menu">Booking</a>
+        <ul class="dropdown-content">
+          <li><a href="/Booking/Wednesday" aria-label="View Wednesday Bookings">Wednesday</a></li>
+          <li><a href="/Booking/Thursday" aria-label="View Thursday Bookings">Thursday</a></li>
+          <li><a href="/Booking/Friday" aria-label="View Friday Bookings">Friday</a></li>
+        </ul>
+      </li>
       <li><a href="/Events" aria-label="View Events">Events</a></li>
       <li><a href="/Contact" aria-label="Contact Us">Contact</a></li>
       <li><a href="/Team" aria-label="Learn About Us">About Us</a></li>
@@ -41,8 +46,8 @@ const { showDropdowns = false } = Astro.props;
   </div>
 </header>
 
-
 <style>
+
 .header {
   position: fixed;
   top: 0;

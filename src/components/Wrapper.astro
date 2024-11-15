@@ -1,5 +1,4 @@
 ---
-// src/components/Wrapper.astro
 const {
     charset = "UTF-8",
     title,
@@ -7,12 +6,11 @@ const {
     ogImage,
     ogUrl,
     viewport = "width=device-width, initial-scale=1.0",
-    mainClass = "scrollable-content",
-    showDropdowns = false
+    mainClass = "scrollable-content"
 } = Astro.props;
+
 import Header from './Header.astro';
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,13 +27,13 @@ import Header from './Header.astro';
 </head>
 <body>
     <div id="content-wrapper">
-        <!-- Include Header und übergebe `showDropdowns` -->
-        <Header showDropdowns={showDropdowns} />
+        <!-- Header einbinden -->
+        <Header />
 
-        <!-- Slot for content directly after the header -->
+        <!-- Slot für Inhalte direkt nach dem Header -->
         <slot name="after-header" />
 
-        <!-- Main content area -->
+        <!-- Hauptinhalt -->
         <main id="main-content" class={mainClass}>
             <slot name="main" />
         </main>
