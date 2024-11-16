@@ -5,7 +5,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://devsfiae.github.io/la-mediterranea.astro',
-  base: '/la-mediterranea.astro/',
+  base: '/',
   integrations: [react()], 
     vite: {
         build: {
