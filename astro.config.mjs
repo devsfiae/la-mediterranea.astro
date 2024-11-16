@@ -14,7 +14,7 @@ export default defineConfig({
           },
         },
         optimizeDeps: {
-          exclude: ['playwright-report', 'tests', 'test-results', 'tests-examples', 'trash'], // Ausnahme von den Dependencies
+          exclude: ['src/api/','playwright-report', 'tests', 'test-results', 'tests-examples', 'trash'], // Ausnahme von den Dependencies
           
         },
     },

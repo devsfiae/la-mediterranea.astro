@@ -17,15 +17,12 @@
     "astro": "^5.0.0-beta.7",
     "dotenv": "^16.4.5",
     "glob": "^11.0.0",
-    "knex": "^3.1.0",
-    "mysql2": "^3.11.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "typescript": "^5.6.3",
     "vite": "^5.4.10"
   },
   "devDependencies": {
-    "@playwright/test": "^1.48.2",
     "@types/node": "^22.9.0",
     "gh-pages": "^6.2.0"
   },
@@ -34,6 +31,6 @@
   "directories": {
     "test": "tests"
   },
-  "author": "",
+  "author": "Heiko Fanieng, Hiba Al-Anssari, Irina Zittlau, Puya Khandany",
   "license": "ISC"
 }
