@@ -1,5 +1,4 @@
 ---
-import './styles/card.css';
 
 export interface CardProps {
     itemId: string;
@@ -31,3 +30,64 @@ const { itemId, itemName, image, description, price, volume, text1, text2 } = As
     <p class="card-text">{text2}</p>
     <p class="card-volume">{volume}</p>
 </div>
+
+<style>
+/* src/components/card.css */
+
+/* Card Container */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    margin: 60px auto 0; /* Zentrierung und Abstand von oben */
+}
+
+/* Card Styling */
+  .card {
+    background: var(--secondary-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: calc(25% - 20px);
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    height: 500px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .card:hover { 
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-image { 
+    width: 100%;
+    max-height: 200px; 
+    object-fit: cover; 
+    border-radius: 8px;
+    margin-bottom: 10px; }
+  
+    .card-title {
+    font-size: 1.0rem; 
+    font-weight: 600; 
+    color: var(--link-color); 
+    margin-bottom: 5px; 
+    flex-grow: 1;
+  }
+  .card-description {
+    font-size: 0.9rem;
+    color: var(--text-color); 
+    margin-bottom: 10px;
+    flex-grow: 2;
+    
+  }
+  .card-price {
+    font-size: 0.9rem; 
+    color: var(--link-color); 
+    text-align: right;
+    margin-top: auto;
+  }
+</style>
