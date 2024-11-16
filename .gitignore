@@ -34,4 +34,6 @@ pnpm-debug.log*
 
 # vscode settings
 la-mediterranea.astro.code-workspace
-trash/
+
+# php-api
+/src/php/
