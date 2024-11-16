@@ -1,14 +1,24 @@
 ---
+// src/pages/drinks_card.astro
+
 import Wrapper from '../components/Wrapper.astro';
-import FoodCategoryDropdown from '../components/FoodCategoryDropown.astro';
 import Card from '../components/Card.astro';
 import '../styles/global.css';
 
-const response = await fetch('https://la-mediterranea.eu/api/menu_items.php?category=30');
+const response = await fetch('https://la-mediterranea.eu/api/menu_items.php?category=20');
 const data = await response.json();
 
-// Greife auf das `results`-Array zu
-const menuItems = data.results;
+// Access the `results` array
+interface MenuItem {
+    item_id: number;
+    item_name: string;
+    image_item_name: string;
+    description: string;
+    degree_item_name: string;
+    price: number;
+}
+
+const menuItems: MenuItem[] = data.results;
 
 if (!menuItems || menuItems.length === 0) {
     throw new Error("Menu items data is empty or undefined.");
@@ -16,25 +26,24 @@ if (!menuItems || menuItems.length === 0) {
 ---
 <Wrapper
     charset="UTF-8"
-    title="Menu - La Mediterranea"
-    description="Feal the Mediterranean vibes with our delicious dishes."
+    title="Drinks - La Mediterranea"
+    description="Enjoy our refreshing drinks."
     ogImage="/images/persons/bartender.png"
-    ogUrl="/FoodCard.html"
+    ogUrl="/DrinkCard.html"
     noFooter={true} 
 >
-    <FoodCategoryDropdown slot="after-header" />
+
 
     <div slot="main" class="card-container scrollable-content">
         {menuItems.map(menuItem => (
             <Card
                 itemId={menuItem.item_id}
                 itemName={menuItem.item_name}
-                image={`../images/food/${menuItem.image_item_name}`}
+                image={`../images/drinks/${menuItem.image_item_name}`}
                 description={menuItem.description}
+                text1={menuItem.degree_item_name}
                 price={menuItem.price}
             />
         ))}
     </div>
-
-    <FoodCategoryDropdown slot="before-footer" />
 </Wrapper>

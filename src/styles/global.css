@@ -11,6 +11,7 @@
 :root {
     --background-color: #F3F3F3;
     --text-color: #1C1C1E;
+    --link-color: #0A84FF;
     --primary-color: #0A84FF;
     --header-height: 50px;
     --heading-font: 'Helvetica Neue', sans-serif;

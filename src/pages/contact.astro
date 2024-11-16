@@ -1,11 +1,9 @@
 ---
 // pages/contact.astro
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import ContactCategoryDropown from '../components/contactCategoryDropown.astro';
 import EmailForm from '../components/EmailForm.astro';
 import '../styles/global.css';
-import '../styles/card.css';
+import '../components/styles/card.css';
 ---
 
 <!DOCTYPE html>
@@ -29,7 +27,7 @@ import '../styles/card.css';
     <Header />
     <!-- Main Content -->
     <main class="main-content">
-    <ContactCategoryDropown />
+
     <!-- Cards Container -->
     <div class="card-container">
         <!-- Card for Address -->
@@ -38,7 +36,7 @@ import '../styles/card.css';
             <h3 class="card-title">address</h3>
             <div class="divider-gradient"></div>
         </div>
-        <img class="card-image" src="/images/bar/bar.png" alt="Beach Bar" />
+        <img class="card-image" src="/images/slides/contact.png" alt="Beach Bar" />
         <p class="card-description">
             La Mediterranea<br />
             Es Pujols, Formentera<br />
@@ -71,6 +69,6 @@ import '../styles/card.css';
         </div>
     </div>
     </main>
-    <Footer />
+
 </body>
 </html>

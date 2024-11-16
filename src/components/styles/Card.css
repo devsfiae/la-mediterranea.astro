@@ -1,6 +1,5 @@
-/* src/components/Card.js */
+/* src/components/card.css */
 
-/* Card Container */
 /* Card Container */
 .card-container {
     display: flex;
@@ -10,7 +9,7 @@
     width: 100%;
     max-width: 1200px;
     padding: 20px;
-    margin: 180px auto 0; /* Zentrierung und Abstand von oben */
+    margin: 60px auto 0; /* Zentrierung und Abstand von oben */
 }
 
 /* Card Styling */

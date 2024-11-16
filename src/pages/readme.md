@@ -1,5 +1,5 @@
 ---
-layout: "../styles/MarkdownLayout.astro"
+path: "/readme"
 ---
 
 # Testplan für die La Mediterranea Web-App

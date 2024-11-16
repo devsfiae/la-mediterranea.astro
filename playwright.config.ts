@@ -1,4 +1,5 @@
 // playwright.config.ts
+
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
@@ -14,7 +15,3 @@ export default defineConfig({
         reuseExistingServer: !process.env.CI,
     },
 });
-
-//theycantforceus!
-
-// https://bold-ptolemy.81-169-190-112.plesk.page/login_up.php

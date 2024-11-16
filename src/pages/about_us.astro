@@ -1,14 +1,23 @@
 ---
-import Wrapper from '../components/WrapperSlideSite.astro';
-import TeamCategoryDropdown from '../components/TeamCategoryDropown.astro';
+// src/pages/about_us.astro
+
 import Card from '../components/Card.astro';
+import Wrapper from '../components/Wrapper.astro';
 import '../styles/global.css';
 
 const response = await fetch('https://la-mediterranea.eu/api/person_items.php?category=10');
 const data = await response.json();
 
-// Greife auf das `results`-Array zu
-const personItems = data.results;
+// Access the `results` array
+interface PersonItem {
+    item_id: number;
+    first_name: string;
+    image_item_name: string;
+    description: string;
+    subcategory_item_name: string;
+}
+
+const personItems: PersonItem[] = data.results;
 
 if (!personItems || personItems.length === 0) {
     throw new Error("person items data is empty or undefined.");
@@ -22,7 +31,6 @@ if (!personItems || personItems.length === 0) {
     ogUrl="Team.html"
     noFooter={true} 
 >
-    <TeamCategoryDropdown slot="after-header" />
 
     <div slot="main" class="card-container scrollable-content">
         {personItems.map(personItem => (

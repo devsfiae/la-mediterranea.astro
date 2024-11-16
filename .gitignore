@@ -1,8 +1,8 @@
 # playwright tests
-# playwright-report/
+playwright-report/
 # tests/
 # test-results/
-
+playwright.config.ts
 # build output
 dist/
 
@@ -31,3 +31,7 @@ pnpm-debug.log*
 # /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# vscode settings
+la-mediterranea.astro.code-workspace
+trash/

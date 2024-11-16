@@ -1,14 +1,14 @@
 ---
-import Wrapper from '../components/WrapperSlideSite.astro';
-import FoodCategoryDropdown from '../components/FoodCategoryDropown.astro';
-import Card from '../components/Card.astro';
+// src/pages/food_card.astro
+
+import Wrapper from '../components/Wrapper.astro'; // import Wrapper component
+import Card from '../components/Card.astro'; // import Card component
 import '../styles/global.css';
-import '../styles/card.css';
 
 const response = await fetch('https://la-mediterranea.eu/api/menu_items.php?category=30');
 const data = await response.json();
 
-// Greife auf das `results`-Array zu
+// Access the `results` array
 const menuItems = data.results;
 
 if (!menuItems || menuItems.length === 0) {
@@ -23,10 +23,9 @@ if (!menuItems || menuItems.length === 0) {
     ogUrl="/FoodCard.html"
     noFooter={true} 
 >
-    <FoodCategoryDropdown slot="after-header" />
 
     <div slot="main" class="card-container scrollable-content">
-        {menuItems.map(menuItem => (
+        {menuItems.map((menuItem: { item_id: any; item_name: any; image_item_name: any; description: any; price: any; }) => (
             <Card
                 itemId={menuItem.item_id}
                 itemName={menuItem.item_name}
