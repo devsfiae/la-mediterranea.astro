@@ -1,4 +1,5 @@
 ---
+// src/components/Card.astro
 
 export interface CardProps {
     itemId: string;
@@ -32,30 +33,17 @@ const { itemId, itemName, image, description, price, volume, text1, text2 } = As
 </div>
 
 <style>
-/* src/components/card.css */
-
-/* Card Container */
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    width: 100%;
-    max-width: 1200px;
-    padding: 20px;
-    margin: 60px auto 0; /* Zentrierung und Abstand von oben */
-}
 
 /* Card Styling */
   .card {
-    background: var(--secondary-color);
+    background: var(--background-color);
+    color: var(--text-color);
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: calc(25% - 20px);
     display: flex;
     flex-direction: column;
     padding: 15px;
-    height: 500px;
     transition: transform 0.3s, box-shadow 0.3s;
   }
   .card:hover { 
@@ -90,4 +78,22 @@ const { itemId, itemName, image, description, price, volume, text1, text2 } = As
     text-align: right;
     margin-top: auto;
   }
+
+@media (max-width: 1024px) {
+  .card {
+    width: calc(33.33% - 20px); /* 3 Karten */
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+     width: calc(50% - 20px); /* 2 Karten */
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%; /* 1 Karte */
+  }
+}
 </style>

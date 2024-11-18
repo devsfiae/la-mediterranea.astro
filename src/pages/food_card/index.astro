@@ -1,0 +1,40 @@
+---
+// src/pages/food_card/index.astro
+
+import Wrapper from '../../components/Wrapper.astro';
+import Card from '../../components/Card.astro';
+import '../../styles/global.css';
+
+// Retrieve all menu items in category 30
+const response = await fetch('https://la-mediterranea.eu/api/menu_items.php?category=30');
+const data = await response.json();
+
+const menuItems = data.results;
+
+if (!menuItems || menuItems.length === 0) {
+    throw new Error('No items found for category food.');
+}
+---
+
+<Wrapper
+    charset="UTF-8"
+    title="Food Menu - La Mediterranea"
+    description="Explore all our Mediterranean dishes."
+    ogImage="/images/food/default.png"
+    ogUrl="/food"
+>
+    <div slot="main" class="card-container">
+        {menuItems.map((menuItem: {
+[x: string]: any; menu_item_id: any; item_name: any; image_item_name: any; description: any; price: any; 
+}) => (
+            <Card
+                itemId={menuItem.menu_item_id}
+                itemName={menuItem.item_name}
+                image={`/images/food/${menuItem.image_item_name}`}
+                description={menuItem.description}
+                price={`${menuItem.price.toFixed(2).replace('.', ',')} €`}
+                text1={menuItem.degree_item_name}
+            />
+        ))}
+    </div>
+</Wrapper>

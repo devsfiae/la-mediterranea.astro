@@ -1,9 +1,9 @@
 ---
-// src/pages/drinks_card.astro
+// src/pages/drink_items/drinks_card.astro
 
-import Wrapper from '../components/Wrapper.astro';
-import Card from '../components/Card.astro';
-import '../styles/global.css';
+import Wrapper from '../../components/Wrapper.astro';
+import Card from '../../components/Card.astro';
+import '../../styles/global.css';
 
 const response = await fetch('https://la-mediterranea.eu/api/menu_items.php?category=20');
 const data = await response.json();
@@ -29,7 +29,7 @@ if (!menuItems || menuItems.length === 0) {
     title="Drinks - La Mediterranea"
     description="Enjoy our refreshing drinks."
     ogImage="/images/persons/bartender.png"
-    ogUrl="/DrinkCard.html"
+    ogUrl="/drink_card"
     noFooter={true} 
 >
 
@@ -42,7 +42,7 @@ if (!menuItems || menuItems.length === 0) {
                 image={`../images/drinks/${menuItem.image_item_name}`}
                 description={menuItem.description}
                 text1={menuItem.degree_item_name}
-                price={menuItem.price}
+                price={`${menuItem.price.toFixed(2).replace('.', ',')} €`}
             />
         ))}
     </div>

@@ -1,0 +1,57 @@
+---
+// src/pages/food_card/[subcategory_id].astro
+
+import Wrapper from '../../components/Wrapper.astro';
+import Card from '../../components/Card.astro';
+import '../../styles/global.css';
+
+// Generate static routes
+export async function getStaticPaths() {
+    const response = await fetch('https://la-mediterranea.eu/api/menu_items.php?category=30');
+    const data = await response.json();
+
+    if (!data.results || data.results.length === 0) {
+        throw new Error('No data found from API.');
+    }
+
+    // Generate the paths based on the `subcategory_id`
+    return data.results.map((item: { subcategory_id: number }) => ({
+        params: { subcategory_id: item.subcategory_id.toString() },
+    }));
+}
+
+const { subcategory_id } = Astro.params;
+
+// Retrieve menu items for the subcategory
+const response = await fetch(`https://la-mediterranea.eu/api/menu_items.php?subcategory=${subcategory_id}`);
+const data = await response.json();
+
+const menuItems = data.results;
+
+if (!menuItems || menuItems.length === 0) {
+    throw new Error(`No items found for subcategory: ${subcategory_id}`);
+}
+---
+
+<Wrapper
+    charset="UTF-8"
+    title={`Food - Subcategory ${subcategory_id}`}
+    description={`Discover our delicious dishes for subcategory ${subcategory_id}.`}
+    ogImage="/images/food/default.png"
+    ogUrl={`/food/${subcategory_id}`}
+>
+    <div slot="main" class="card-container">
+        {menuItems.map((menuItem: {
+[x: string]: any; menu_item_id: any; item_name: any; image_item_name: any; description: any; price: any; 
+}) => (
+            <Card
+                itemId={menuItem.menu_item_id}
+                itemName={menuItem.item_name}
+                image={`/images/food/${menuItem.image_item_name}`}
+                description={menuItem.description}
+                price={`${menuItem.price.toFixed(2).replace('.', ',')} €`}
+                text1={menuItem.degree_item_name}
+            />
+        ))}
+    </div>
+</Wrapper>

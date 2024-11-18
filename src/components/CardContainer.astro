@@ -1,0 +1,69 @@
+---
+// src/components/CardContainer.astro
+
+import Card from './Card.astro';
+
+interface CardItem {
+    itemId: string;
+    itemName: string;
+    image: string;
+    description: string;
+    price: string;
+    volume?: string;
+    text1?: string;
+    text2?: string;
+}
+
+// Props for the CardContainer component
+interface CardContainerProps {
+    items?: CardItem[]; // List of Card objects
+    apiUrl?: string;    // Optional API endpoint
+}
+
+const { items = [], apiUrl } = Astro.props;
+
+let fetchedItems: CardItem[] = [];
+
+// Get the data from the API if apiUrl is provided
+if (apiUrl) {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    fetchedItems = data.results.map((item: any) => ({
+        itemId: item.item_id.toString(),
+        itemName: item.first_name || item.itemName,
+        image: item.image_item_name,
+        description: item.description,
+        price: item.subcategory_item_name || item.price,
+    }));
+}
+
+// Use either the items provided or those from the API
+const finalItems = apiUrl ? fetchedItems : items;
+---
+
+<div class="card-container">
+    {finalItems.map((item: CardItem) => (
+        <Card
+            itemId={item.itemId}
+            itemName={item.itemName}
+            image={item.image}
+            description={item.description}
+            price={item.price}
+            volume={item.volume}
+            text1={item.text1}
+            text2={item.text2}
+        />
+    ))}
+</div>
+
+<style>
+/* CardContainer Styles */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 20px;
+}
+</style>

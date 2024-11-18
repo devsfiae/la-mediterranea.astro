@@ -1,30 +1,59 @@
 ---
 // src/components/Header.astro
 import ThemeSwitch from './ThemeSwitch.astro';
-
 const menuItems = [
-  { title: 'Start', link: '/', subItems: [''] },
-  { title: 'Food', link: '/food/', subItems: ['Meat', 'Seafood', 'Vegetarian', 'Desserts'] },
-  { title: 'Drinks', link: '/drinks/', subItems: ['Fruity & Refreshing', 'Fruity & Sweet', 'Alcoholic', 'Hot Drinks'] },
-  { title: 'Booking', link: '/booking/', subItems: ['Wednesday', 'Thursday', 'Friday', 'Saturday'] },
-  { title: 'Events', link: '/events/', subItems: [] },
-  { title: 'Contact', link: '/contact/', subItems: ['Adress','Mail','Map'] },
-  { title: 'About Us', link: '/about_us/', subItems: ['Barista','Bartender & DJ', 'Chef', 'Customer (VIP)', 'Manager'] },
+  { title: 'Start', link: '/', subItems: [] },
+  { 
+    title: 'Food', 
+    link: '/food_card', 
+    subItems: [
+      { name: 'Meat', id: '301' },
+      { name: 'Seafood', id: '302' },
+      { name: 'Vegetarian', id: '303' },
+      { name: 'Desserts', id: '304' }
+    ] 
+  },
+  { 
+    title: 'Drinks', 
+    link: '/drink_card', 
+    subItems: [
+      { name: 'Fruity & refreshing', id: '201' },
+      { name: 'Fruity & sweet', id: '202' },
+      { name: 'Sweet & creamy', id: '203' },
+      { name: 'Tart & dry', id: '204' },
+      { name: 'Non alcoholic', id: '205' },
+      { name: 'Hot drinks', id: '206' }
+    ] 
+  },
+  { 
+    title: 'About', 
+    link: '/about_card', 
+    subItems: [
+      { name: 'Barista', id: '155' },
+      { name: 'Bartender', id: '170' },
+      { name: 'Chef', id: '160' },
+      { name: 'Manager', id: '140' },
+      { name: 'VIP Customer', id: '120' }
+    ] 
+  },
 ];
 ---
+
 <header class="header">
   <div class="logo">
-    <a href="/index.html" aria-label="Starting Page">&nbsp;</a>
+    <a href="/" aria-label="Starting Page">&nbsp;</a>
   </div>
   <nav>
     <ul class="menu">
-      {menuItems.map((item) => (
+      {menuItems.map(item => (
         <li class="menu-item">
           <a href={item.link}>{item.title}</a>
           {item.subItems.length > 0 && (
             <ul class="dropdown">
-              {item.subItems.map((subItem) => (
-                <li><a href={`${item.link}/${subItem.toLowerCase().replace(/ /g, '-')}`}>{subItem}</a></li>
+              {item.subItems.map(subItem => (
+                <li>
+                  <a href={`${item.link}/${subItem.id}`}>{subItem.name}</a>
+                </li>
               ))}
             </ul>
           )}

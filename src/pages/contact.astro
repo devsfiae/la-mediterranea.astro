@@ -1,9 +1,45 @@
 ---
-// pages/contact.astro
-import Header from '../components/Header.astro';
-import EmailForm from '../components/EmailForm.astro';
-import '../styles/global.css';
+// src/pages/contact.astro
 
+import CardContainer from '../components/CardContainer.astro';
+import EmailForm from '../components/EmailForm.astro';
+import Header from '../components/Header.astro';
+
+// Statische Daten für die Kontaktseite
+const contactItems = [
+    {
+        itemId: '1',
+        itemName: 'Address',
+        image: '/images/slides/contact.png',
+        description: 'La Mediterranea',
+        text1: 'Formentera, balearic islands',
+        text2: 'Spain',
+        price: '',
+    },
+    {
+        itemId: '2',
+        itemName: 'Map',
+        image: '/images/icons/no_picture.png',
+        description: '',
+        price: '',
+        text1: `<iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3136.392394245623!2d1.487999751256519!3d38.67755337951382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1299b77fd7fb92bb%3A0x53ef1a1ae4b8b13a!2s38%C2%B040'39.2%22N%201%C2%B029'16.0%22E!5e0!3m2!1sen!2sus!4v1696000000000!5m2!1sen!2sus"
+            width="250"
+            height="250"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+    },
+    {
+        itemId: '3',
+        itemName: 'Mail',
+        image: '/images/icons/site_logo.png',
+        description: '',
+        price: '',
+        text1: '<EmailForm />',
+    },
+];
 ---
 
 <!DOCTYPE html>
@@ -11,64 +47,13 @@ import '../styles/global.css';
 <head>
     <meta charset="UTF-8" />
     <title>contact @ La Mediterranea</title>
-    <link rel="shortcut icon" href="/images/favicon.ico" />
-    <!-- Open Graph Meta-Tags -->
-    <meta property="og:title" content="contact @La Mediterranea" />
-    <meta property="og:description" content="contact" />
-    <meta property="og:image" content="/images/website_background.jpg" />
-    <meta property="og:url" content="http://la-mediterranea.eu/contact.html" />
-    <meta property="og:type" content="website" />
-    <!-- Responsive Design -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/styles/global.css" />
 </head>
 
 <body>
-    <!-- Header (Include your header component if you have one) -->
     <Header />
-    <!-- Main Content -->
     <main class="main-content">
-
-    <!-- Cards Container -->
-    <div class="card-container">
-        <!-- Card for Address -->
-        <div class="card">
-            <div class="card-header">
-            <h3 class="card-title">address</h3>
-            <div class="divider-gradient"></div>
-        </div>
-        <img class="card-image" src="/images/slides/contact.png" alt="Beach Bar" />
-        <p class="card-description">
-            La Mediterranea<br />
-            Es Pujols, Formentera<br />
-            Balearische Inseln, Spanien<br />
-            Tel: +34 123 456 789<br />
-        </p>
-        </div>
-
-        <!-- Card for Google Map -->
-        <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">map</h3>
-            <div class="divider-gradient"></div>
-        </div>
-        
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3136.392394245623!2d1.487999751256519!3d38.67755337951382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1299b77fd7fb92bb%3A0x53ef1a1ae4b8b13a!2s38%C2%B040'39.2%22N%201%C2%B029'16.0%22E!5e0!3m2!1sen!2sus!4v1696000000000!5m2!1sen!2sus"
-            width="250"
-            height="250"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-        </div>
-        <div class="card">
-            <h3 class="card-title">mail</h3>
-            <div class="divider-gradient"></div>
-        <EmailForm />
-        </div>
-    </div>
+        <CardContainer items={contactItems} />
     </main>
-
 </body>
 </html>
