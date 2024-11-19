@@ -1,5 +1,6 @@
 ---
 // src/components/Header.astro
+
 import ThemeSwitch from './ThemeSwitch.astro';
 const menuItems = [
   { title: 'Start', link: '/', subItems: [] },
@@ -23,6 +24,26 @@ const menuItems = [
       { name: 'Tart & dry', id: '204' },
       { name: 'Non alcoholic', id: '205' },
       { name: 'Hot drinks', id: '206' }
+    ] 
+  },
+  { title: 'Booking', 
+    link: '/booking_card', 
+    subItems: [
+      { name: 'Wednesday', id: '155' },
+      { name: 'Thursday', id: '170' },
+      { name: 'Friday', id: '160' },
+      { name: 'Saturday', id: '140' },
+      { name: 'Sunday', id: '120' }
+    ] 
+  },
+  { title: 'Events', 
+    link: '/event_card', 
+    subItems: [
+      { name: 'Concert', id: '155' },
+      { name: 'Festival', id: '170' },
+      { name: 'Wedding', id: '160' },
+      { name: 'Birthday', id: '140' },
+      { name: 'Company party', id: '120' }
     ] 
   },
   { 

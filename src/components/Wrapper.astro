@@ -29,13 +29,13 @@ import Header from './Header.astro';
 </head>
 <body>
     <div id="content-wrapper">
-        <!-- Header einbinden -->
+        <!-- Include header -->
         <Header />
 
-        <!-- Slot für Inhalte direkt nach dem Header -->
+        <!-- Slot for content directly after the header -->
         <slot name="after-header" />
 
-        <!-- Hauptinhalt -->
+        <!-- Main content -->
         <main id="main-content" class={mainClass}>
             <slot name="main" />
         </main>

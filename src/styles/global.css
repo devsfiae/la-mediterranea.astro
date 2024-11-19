@@ -74,6 +74,39 @@ main {
     margin: 0 auto;
 }
 
+/* Full-width Apple-style divider */
+.divider {
+    height: 1px; /* Thin line for minimalism */
+    background-color: var(--text-color); /* Neutral text color for both modes */
+    opacity: 0.36; /* Subtle appearance */
+    margin: 16px 0; /* Vertical spacing */
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Ensures padding and border are calculated inside the width */
+}
+
+/* Shorter, centered Apple-style divider */
+.divider-short {
+    height: 1px;
+    background-color: var(--text-color); /* Neutral text color for both modes */
+    opacity: 0.36;
+    margin: 16px auto; /* Centered with vertical spacing */
+    width: 80%; /* Shorter width */
+    box-sizing: border-box;
+}
+/* Gradient divider for Apple style */
+.divider-gradient {
+    height: 1px;
+    background: linear-gradient(
+    to right,
+    transparent 0%, /* Starts fully transparent */
+    rgba(var(--text-color-rgb), 0.36) 50%, /* Neutral text color in the center */
+    transparent 100% /* Ends fully transparent */
+    );
+    margin: 16px 0;
+    width: 100%; /* Full width */
+    box-sizing: border-box;
+}
+
 /* responsive */
 
 @media (max-width: 768px) {
