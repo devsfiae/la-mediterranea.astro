@@ -14,12 +14,22 @@ interface eventItem {
     item_name: string;
     event_date: string;
     event_time: string;
+    day_item_name: string;
     image_item_name: string;
     description: string;
     subcategory_item_name: string;
 }
 
-const eventItems: eventItem[] = data.results;
+const formatDate = (date: string): string => {
+    if (!date) return ''; 
+    const [year, month, day] = date.split('-');
+    return `${day}.${month}.${year}`; 
+};
+
+const eventItems: eventItem[] = data.results.map((item: { event_date: string; }) => ({
+    ...item,
+    event_date: formatDate(item.event_date),
+}));
 
 if (!eventItems || eventItems.length === 0) {
     throw new Error("Event items data is empty or undefined.");
@@ -39,7 +49,7 @@ if (!eventItems || eventItems.length === 0) {
             <Card
                 itemId={eventItem.item_id}
                 itemName={eventItem.item_name}
-                text1={eventItem.event_date}
+                text1={`${eventItem.day_item_name}, ${eventItem.event_date}`}
                 text2={eventItem.event_time}
                 image={`../images/events/${eventItem.image_item_name}`}
                 description={eventItem.description}

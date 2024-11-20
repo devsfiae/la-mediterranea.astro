@@ -31,9 +31,10 @@ $category = isset($_GET['category']) && is_numeric($_GET['category']) ? intval($
 $subcategory = isset($_GET['subcategory']) && is_numeric($_GET['subcategory']) ? intval($_GET['subcategory']) : 0;
 
 // Build the SQL query with optional filters for category and subcategory
-$sql = "SELECT event_items.*, image_items.item_name AS image_item_name
+$sql = "SELECT event_items.*, image_items.item_name AS image_item_name, day_items.item_name AS day_item_name
         FROM event_items 
-        LEFT JOIN image_items ON event_items.image_id = image_items.image_item_id";
+        LEFT JOIN image_items ON event_items.image_id = image_items.image_item_id
+        LEFT JOIN day_items ON event_items.day_id = day_items.day_item_id";
 
 $conditions = [];
 
