@@ -1,0 +1,50 @@
+---
+// src/pages/about_card/index.astro
+
+import Wrapper from '../../components/Wrapper.astro';
+import Card from '../../components/Card.astro';
+import '../../styles/global.css';
+
+const response = await fetch('https://la-mediterranea.eu/api/event_items.php?category=40');
+const data = await response.json();
+
+// Access the `results` array
+interface eventItem {
+    item_id: number;
+    item_name: string;
+    event_date: string;
+    event_time: string;
+    image_item_name: string;
+    description: string;
+    subcategory_item_name: string;
+}
+
+const eventItems: eventItem[] = data.results;
+
+if (!eventItems || eventItems.length === 0) {
+    throw new Error("Event items data is empty or undefined.");
+}
+---
+<Wrapper
+    charset="UTF-8"
+    title="Events - La Mediterranea"
+    description="Explore our events."
+    ogImage="/images/events/dj_mysteryland.png"
+    ogUrl="/event_card"
+>
+
+
+    <div slot="main" class="card-container scrollable-content">
+        {eventItems.map(eventItem => (
+            <Card
+                itemId={eventItem.item_id}
+                itemName={eventItem.item_name}
+                text1={eventItem.event_date}
+                text2={eventItem.event_time}
+                image={`../images/events/${eventItem.image_item_name}`}
+                description={eventItem.description}
+                price={eventItem.subcategory_item_name}
+    />
+        ))}
+    </div>
+</Wrapper>
