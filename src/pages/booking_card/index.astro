@@ -1,0 +1,56 @@
+---
+// src/pages/about_card/index.astro
+
+import Wrapper from '../../components/Wrapper.astro';
+import Card from '../../components/Card.astro';
+import '../../styles/global.css';
+
+const response = await fetch('https://la-mediterranea.eu/api/booking_items.php?startdate=2021-11-20');
+const data = await response.json();
+
+// Access the `results` array
+interface bookingItem {
+    item_id: number;
+    table_item_name: string;
+    booking_date: string;
+    booking_time: string;
+    day_item_name: string;
+    image_item_name: string;
+}
+
+const formatDate = (date: string): string => {
+    if (!date) return ''; 
+    const [year, month, day] = date.split('-');
+    return `${day}.${month}.${year}`; 
+};
+
+const bookingItems: bookingItem[] = data.results.map((item: { booking_date: string; }) => ({
+    ...item,
+    booking_date: formatDate(item.booking_date),
+}));
+
+if (!bookingItems || bookingItems.length === 0) {
+    throw new Error("Booking items data is empty or undefined.");
+}
+---
+<Wrapper
+    charset="UTF-8"
+    title="Booking - La Mediterranea"
+    description="Book a free place for a good time."
+    ogImage="/images/bookings/beach_middle.png"
+    ogUrl="/booking_card"
+>
+
+
+<div slot="main" class="card-container scrollable-content">
+    {bookingItems.map(bookingItem => (
+        <Card
+            itemId={bookingItem.item_id}
+            itemName={bookingItem.table_item_name}
+            text1={`${bookingItem.day_item_name}, ${bookingItem.booking_date}`}
+            text2={bookingItem.booking_time}
+            image={`../images/bookings/${bookingItem.image_item_name}`}
+        />
+    ))}
+</div>
+</Wrapper>

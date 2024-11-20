@@ -41,11 +41,13 @@ $sql = "SELECT
             booking_items.*,
             day_items.item_name AS day_item_name,
             person_items.first_name AS person_first_name,
-            table_items.item_name AS table_item_name
+            table_items.item_name AS table_item_name,
+            image_items.item_name AS image_item_name
         FROM booking_items
         LEFT JOIN day_items ON booking_items.day_id = day_items.day_item_id
         LEFT JOIN person_items ON booking_items.person_id = person_items.person_item_id
-        LEFT JOIN table_items ON booking_items.table_id = table_items.table_item_id";
+        LEFT JOIN table_items ON booking_items.table_id = table_items.table_item_id
+        LEFT JOIN image_items ON table_items.image_id = image_items.image_item_id";
 
 $conditions = [];
 
