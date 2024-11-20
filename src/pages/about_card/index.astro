@@ -37,7 +37,7 @@ if (!personItems || personItems.length === 0) {
         {personItems.map(personItem => (
             <Card
                 itemId={personItem.item_id}
-                itemFirstName={personItem.first_name}
+                itemName={personItem.first_name}
                 image={`../images/persons/${personItem.image_item_name}`}
                 description={personItem.description}
                 price={personItem.subcategory_item_name}
