@@ -68,12 +68,12 @@ const menuItems = [
     <ul class="menu">
       {menuItems.map(item => (
         <li class="menu-item">
-          <a href={item.link}>{item.title}</a>
+          <a href={`${item.link.endsWith('/') ? item.link : item.link + '/'}`}>{item.title}</a>
           {item.subItems.length > 0 && (
             <ul class="dropdown">
               {item.subItems.map(subItem => (
                 <li>
-                  <a href={`${item.link}/${subItem.id}`}>{subItem.name}</a>
+                  <a href={`${item.link.endsWith('/') ? item.link : item.link + '/'}${subItem.id}/`}>{subItem.name}</a>
                 </li>
               ))}
             </ul>
